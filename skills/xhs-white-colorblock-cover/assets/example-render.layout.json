@@ -1,0 +1,87 @@
+{
+  "canvas": [
+    1080,
+    1440
+  ],
+  "panel_y": 720,
+  "text_boxes": [
+    {
+      "text": "ESSAY",
+      "box": [
+        52,
+        30,
+        239,
+        71
+      ],
+      "size": 58
+    },
+    {
+      "text": "写作观察",
+      "box": [
+        807,
+        49,
+        907,
+        75
+      ],
+      "size": 25
+    },
+    {
+      "text": "Working hard on your essay.",
+      "box": [
+        52,
+        135,
+        492,
+        166
+      ],
+      "size": 35
+    },
+    {
+      "text": "Still not getting the marks?",
+      "box": [
+        52,
+        178,
+        464,
+        209
+      ],
+      "size": 35
+    },
+    {
+      "text": "Essay写得很认真，",
+      "box": [
+        52,
+        241,
+        1012,
+        364
+      ],
+      "size": 108
+    },
+    {
+      "text": "为什么分数",
+      "box": [
+        52,
+        381,
+        682,
+        503
+      ],
+      "size": 126
+    },
+    {
+      "text": "还不高？",
+      "box": [
+        52,
+        527,
+        556,
+        649
+      ],
+      "size": 126
+    }
+  ],
+  "fonts": {
+    "cn": "C:\\Windows\\Fonts\\NotoSerifSC-VF.ttf",
+    "en": "C:\\Windows\\Fonts\\timesbd.ttf"
+  },
+  "source_image": "C:\\Users\\lgy\\.codex\\skills\\xhs-white-colorblock-cover\\assets\\example-illustration.png",
+  "source_sha256": "fae27b3d0bda88900b742c4b74f233ec18a25283e1968431f159d63c47c1c0a0",
+  "output_sha256": "135c55187469b0808b7209bcc845042e856a22280946b3e09b89f8fdb3000f41",
+  "visual_review": "pending"
+}

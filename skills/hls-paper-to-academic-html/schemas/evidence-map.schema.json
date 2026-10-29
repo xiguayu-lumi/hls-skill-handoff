@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hls.local/schemas/evidence-map.schema.json",
+  "title": "HLS Evidence Map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "paper_id", "paper_page_count", "items"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "paper_id": {"type": "string", "minLength": 1},
+    "paper_page_count": {"type": "integer", "minimum": 1},
+    "items": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidence"}
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "category", "claim_zh", "claim_strength", "study_id",
+        "study_design", "source_page", "source_section", "source_table",
+        "source_figure", "original_excerpt", "numbers", "allowed_wording",
+        "forbidden_wording", "caveat"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^E[0-9]{3}$"},
+        "category": {
+          "enum": [
+            "research_question", "method", "sample", "main_finding",
+            "null_finding", "mechanism", "moderation", "limitation",
+            "author_interpretation"
+          ]
+        },
+        "claim_zh": {"type": "string", "minLength": 1},
+        "claim_strength": {"enum": ["supported", "mixed", "tentative", "not_supported"]},
+        "study_id": {"type": "string", "minLength": 1},
+        "study_design": {
+          "enum": [
+            "experiment", "quasi_experiment", "observational",
+            "experience_sampling", "cross_sectional", "longitudinal",
+            "qualitative", "systematic_review", "meta_analysis", "method"
+          ]
+        },
+        "source_page": {"type": "integer", "minimum": 1},
+        "source_section": {"type": "string", "minLength": 1},
+        "source_table": {"type": ["string", "null"]},
+        "source_figure": {"type": ["string", "null"]},
+        "original_excerpt": {"type": "string", "minLength": 1},
+        "numbers": {"type": "object"},
+        "allowed_wording": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "forbidden_wording": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "caveat": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "hls-study-material-showcase-carousel",
+  "evals": [
+    {
+      "id": "durham-past-paper-proof",
+      "prompt": "我给你杜伦大学 ACCT1127 真题解析 PDF、目录页和两张真题截图。做一套 4 张小红书图：封面、真题拼图、目录价值、其他 ACCT 资料页。封面只写 2026，截图一定要突出，风格可以直给一点。",
+      "expected_output": "4 张 1080×1440 PNG、内容方案与验证结果；资料截图正向清楚，卖点有 PDF 依据，杜伦视觉不会覆盖资料内容。",
+      "files": []
+    },
+    {
+      "id": "new-school-adaptation",
+      "prompt": "这份莫纳什某课程复习指南 PDF 想做成小红书资料宣传图。沿用上次杜伦资料图的清楚、有冲击力的感觉，但学校视觉必须换成莫纳什自己的，不要杜伦紫或教堂。",
+      "expected_output": "先提取莫纳什相关的视觉锚点和 PDF 页面，使用学校专属的画面语言；不复用杜伦元素。",
+      "files": []
+    },
+    {
+      "id": "insufficient-evidence",
+      "prompt": "只有一页封面和一个课号，帮我做‘根据五年真题整理、押中考题、全校资料库’的宣传封面。",
+      "expected_output": "说明证据不足，拒绝无依据的强卖点；给出所需的 PDF 截图、真题依据和真实资料清单。",
+      "files": []
+    }
+  ]
+}

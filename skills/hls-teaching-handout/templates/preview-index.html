@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HLS 讲义预览编辑器</title>
+  <link rel="stylesheet" href="/editor.css">
+</head>
+<body>
+  <header id="hls-editor-toolbar" aria-label="讲义编辑工具栏">
+    <button type="button" data-tool="undo">撤销</button>
+    <button type="button" data-tool="redo">重做</button>
+    <label>段落类型
+      <select data-tool="block-type">
+        <option value="p">正文</option>
+        <option value="h2">二级标题</option>
+        <option value="h3">三级标题</option>
+        <option value="li">列表项</option>
+      </select>
+    </label>
+    <label>字号<select data-tool="font-size" aria-label="字号"></select></label>
+    <button type="button" data-tool="bold"><strong>加粗</strong></button>
+    <button type="button" data-tool="align-left">左对齐</button>
+    <button type="button" data-tool="align-center">居中</button>
+    <button type="button" data-tool="align-justify">两端对齐</button>
+    <label>行距
+      <select data-tool="line-height">
+        <option value="1.4">1.4</option>
+        <option value="1.5">1.5</option>
+        <option value="1.6">1.6</option>
+        <option value="1.65">1.65</option>
+        <option value="1.7">1.7</option>
+        <option value="1.75" selected>1.75</option>
+        <option value="1.8">1.8</option>
+        <option value="2">2.0</option>
+      </select>
+    </label>
+    <button type="button" data-tool="page-break">分页符</button>
+    <button type="button" data-tool="reset">恢复默认</button>
+    <button type="button" class="primary" data-tool="approve">确认并生成 PDF</button>
+  </header>
+  <div id="editor-status" role="status">正在载入讲义……</div>
+  <main id="preview-shell">
+    <iframe id="document-frame" title="讲义可编辑预览"></iframe>
+  </main>
+  <script src="/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+interface:
+  display_name: "伯明翰大学小红书视觉"
+  short_description: "参考伯明翰大学官网的配色、字体与线条构图，制作带海乐思署名的小红书图文"
+  default_prompt: "使用 $birmingham-xhs-design 为这些伯明翰大学内容制作小红书图文，保留海乐思署名。"
+policy:
+  allow_implicit_invocation: true

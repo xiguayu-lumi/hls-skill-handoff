@@ -1,0 +1,6 @@
+interface:
+  display_name: "莫纳什大学图文设计"
+  short_description: "按场景选择莫纳什品牌内风格与相关配图，默认保留大学和海乐思双Logo"
+  default_prompt: "使用 $monash-xhs-design 根据任务场景制作莫纳什大学图文，保持品牌识别并默认保留大学与海乐思双Logo。"
+policy:
+  allow_implicit_invocation: true

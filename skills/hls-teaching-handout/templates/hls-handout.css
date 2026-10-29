@@ -1,0 +1,347 @@
+:root {
+  --blue: #2450C8;
+  --blue-dark: #1D3FA8;
+  --orange: #FF6422;
+  --sky: #58B9EE;
+  --ink: #252B33;
+  --muted: #6D7A84;
+  --line: #D6E0EF;
+  --soft-blue: #EEF4FF;
+  --soft-orange: #FFF4EC;
+}
+
+@page {
+  size: A4;
+  margin: 18mm 18mm 18mm 20mm;
+  @top-left {
+    content: string(chapter-title);
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-size: 8.4pt;
+    color: #6B7882;
+  }
+  @top-right {
+    content: "海乐思教学资料";
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-size: 8.4pt;
+    color: #6B7882;
+  }
+  @bottom-left {
+    content: "HLS · Highest 海乐思教育";
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-size: 8.1pt;
+    color: #75828C;
+  }
+  @bottom-right {
+    content: counter(page, decimal-leading-zero);
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-size: 8.1pt;
+    color: #75828C;
+  }
+}
+
+@page cover {
+  margin: 0;
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+@page contents {
+  margin: 16mm 15mm;
+  @top-left { content: none; }
+  @top-right { content: none; }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Noto Serif CJK SC", SimSun, serif;
+  font-size: 10.8pt;
+  line-height: 1.72;
+}
+p {
+  margin: 0 0 3mm;
+  text-align: justify;
+  orphans: 3;
+  widows: 3;
+}
+a { color: inherit; }
+
+/* Fixed cover template. Resolve the URL relative to the generated HTML. */
+.cover {
+  page: cover;
+  width: 210mm;
+  height: 297mm;
+  position: relative;
+  overflow: hidden;
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  background-image: url("../assets/hls-cover-template-clean.jpg");
+  background-size: 210mm 297mm;
+  background-repeat: no-repeat;
+}
+.cover-text {
+  position: absolute;
+  left: 20mm;
+  top: 15.5mm;
+  width: 177mm;
+  color: var(--blue-dark);
+}
+.cover-kicker {
+  font-size: 11.5pt;
+  font-weight: 800;
+  margin-bottom: 11mm;
+}
+.cover-title {
+  max-width: 174mm;
+  margin: 0 0 6mm;
+  font-size: 42pt;
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+.cover-subtitle {
+  max-width: 172mm;
+  margin-bottom: 6mm;
+  font-size: 20.5pt;
+  font-weight: 800;
+  line-height: 1.35;
+}
+.cover-topics {
+  font-size: 11.8pt;
+  font-weight: 800;
+  word-spacing: 0.2em;
+}
+
+.contents-page {
+  page: contents;
+  break-before: page;
+  min-height: 250mm;
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+.contents-page h1 {
+  margin: 3mm 0 12mm;
+  color: var(--blue);
+  font-size: 27pt;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+.toc {
+  column-count: 1;
+}
+.toc.toc--two-column {
+  column-count: 2;
+  column-gap: 13mm;
+  column-rule: 0.25mm solid #C7D5E9;
+}
+.toc-group { break-inside: avoid; margin-bottom: 5mm; }
+.toc a {
+  display: block;
+  margin-bottom: 2mm;
+  color: #536472;
+  line-height: 1.45;
+  text-decoration: none;
+}
+.toc a::after {
+  content: leader('.') target-counter(attr(href), page);
+  color: #60717E;
+}
+.toc .l1 {
+  margin-bottom: 2.8mm;
+  color: var(--blue-dark);
+  font-size: 11.2pt;
+  font-weight: 800;
+}
+.toc .l2 { padding-left: 3mm; font-size: 9.7pt; }
+.toc .l3 { padding-left: 8mm; color: #6D7983; font-size: 9pt; }
+
+.chapter-title {
+  string-set: chapter-title content(text);
+  margin: 0 0 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 0.55mm solid var(--blue);
+  color: var(--blue-dark);
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 20pt;
+  font-weight: 800;
+  line-height: 1.35;
+  break-after: avoid;
+  bookmark-level: 1;
+}
+.chapter-guide {
+  margin: 0 0 5.5mm;
+  padding: 4.2mm 6mm 3.7mm;
+  border-top: 0.35mm solid var(--blue);
+  border-bottom: 0.35mm solid var(--blue);
+  background: var(--soft-blue);
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 9.8pt;
+  break-inside: avoid;
+  break-after: avoid;
+}
+.chapter-guide b {
+  display: inline-block;
+  position: relative;
+  margin: -7mm 0 2.5mm;
+  padding: 1mm 3.8mm;
+  background: var(--orange);
+  color: white;
+  font-size: 9pt;
+}
+.chapter-guide ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1mm 8mm;
+  margin: 0;
+  padding-left: 5mm;
+}
+h2 {
+  margin: 6mm 0 2.7mm;
+  color: var(--blue);
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 15pt;
+  line-height: 1.45;
+  break-after: avoid;
+  bookmark-level: 2;
+}
+h3 {
+  margin: 4mm 0 1.4mm;
+  color: #2A3A46;
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 11.3pt;
+  line-height: 1.5;
+  break-after: avoid;
+  bookmark-level: 3;
+}
+
+.definition,
+.keypoint {
+  break-inside: avoid;
+  margin: 4.5mm 0 5mm;
+  padding: 4.2mm 5.5mm 3.5mm;
+  border: 0.35mm solid #F0A184;
+  border-radius: 1mm;
+  background: var(--soft-orange);
+}
+.keypoint { border-color: #9BB2E9; background: var(--soft-blue); }
+.box-label {
+  display: inline-block;
+  margin: -7mm 0 2.5mm -1.5mm;
+  padding: 0.8mm 3.5mm;
+  background: var(--orange);
+  color: white;
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 9pt;
+  font-weight: 700;
+}
+.keypoint .box-label { background: var(--blue); }
+
+.example {
+  break-inside: avoid;
+  margin: 4mm 0 5mm;
+  padding: 1mm 0 1mm 5mm;
+  border-left: 0.8mm solid #9CB3EF;
+}
+.example-label {
+  margin-bottom: 1.5mm;
+  color: var(--blue-dark);
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 9.3pt;
+  font-weight: 800;
+}
+.example p {
+  margin: 0;
+  font-family: Georgia, "Noto Serif CJK SC", serif;
+  font-size: 10.3pt;
+  line-height: 1.7;
+  text-align: left;
+}
+
+figure { margin: 5mm 0 6mm; break-inside: avoid; }
+figcaption {
+  margin-bottom: 2mm;
+  color: #40515D;
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 9.4pt;
+  font-weight: 700;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1.05mm double #344B58;
+  border-bottom: 1.05mm double #344B58;
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.55;
+}
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th {
+  padding: 2.3mm 2mm;
+  border-bottom: 0.35mm solid #536977;
+  color: var(--blue-dark);
+  font-weight: 700;
+  text-align: left;
+}
+td { padding: 2.25mm 2mm; vertical-align: top; }
+
+.checklist { list-style: none; margin: 2mm 0 5mm; padding: 0; }
+.checklist li { position: relative; margin-bottom: 2.4mm; padding-left: 7mm; }
+.checklist li::before {
+  content: "□";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+}
+
+.manual-page-break[data-manual-page-break="true"] {
+  display: block;
+  height: 0;
+  break-before: page;
+}
+
+[data-font-size="9.5"] { font-size: 9.5pt; }
+[data-font-size="10"] { font-size: 10pt; }
+[data-font-size="10.5"] { font-size: 10.5pt; }
+[data-font-size="11"] { font-size: 11pt; }
+[data-font-size="11.5"] { font-size: 11.5pt; }
+[data-font-size="12"] { font-size: 12pt; }
+[data-font-size="13"] { font-size: 13pt; }
+[data-font-size="14"] { font-size: 14pt; }
+[data-font-size="16"] { font-size: 16pt; }
+[data-font-size="18"] { font-size: 18pt; }
+[data-font-size="20"] { font-size: 20pt; }
+[data-font-size="24"] { font-size: 24pt; }
+[data-font-size="28"] { font-size: 28pt; }
+[data-line-height="1.4"] { line-height: 1.4; }
+[data-line-height="1.5"] { line-height: 1.5; }
+[data-line-height="1.6"] { line-height: 1.6; }
+[data-line-height="1.65"] { line-height: 1.65; }
+[data-line-height="1.7"] { line-height: 1.7; }
+[data-line-height="1.75"] { line-height: 1.75; }
+[data-line-height="1.8"] { line-height: 1.8; }
+[data-line-height="2"] { line-height: 2; }
+[data-text-align="left"] { text-align: left; }
+[data-text-align="center"] { text-align: center; }
+[data-text-align="justify"] { text-align: justify; }
+
+@media screen {
+  body { background: #E9EEF1; }
+  .cover,
+  .contents-page,
+  .chapter {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 8mm;
+    background-color: white;
+  }
+  [contenteditable="true"] { outline: 1px dashed rgba(36, 80, 200, 0.35); outline-offset: 1mm; }
+  .manual-page-break[data-manual-page-break="true"] {
+    height: 10mm;
+    margin: 4mm 0;
+    border-top: 0.4mm dashed var(--orange);
+  }
+}

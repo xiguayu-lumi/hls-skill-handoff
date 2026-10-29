@@ -1,0 +1,14 @@
+{
+  "name": "hls-paper-to-academic-html",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser rendering and screenshot utilities for the HLS academic HTML Skill",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/visual-dom-check.mjs --self-test",
+    "smoke": ".venv\\Scripts\\python.exe scripts/run_smoke.py"
+  },
+  "devDependencies": {
+    "playwright": "^1.54.0"
+  }
+}

@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ deck.title }}</title>
+  <style>
+    :root{
+      --brand:#1F4CCB;
+      --brand-deep:#173896;
+      --accent:#E2673D;
+      --cyan:#55C0F4;
+      --hl:#FBE0D1;
+      --hl-ink:#8A3A12;
+      --ink:#1B1B1B;
+      --body:#26241F;
+      --sub:#7A756B;
+      --paper:#FAF8F3;
+      --card:#FFFFFF;
+      --line:#E8E3D8;
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#17223A;}
+    body{
+      font-family:"Noto Sans SC","Source Han Sans SC","Microsoft YaHei",Arial,sans-serif;
+      color:var(--ink);
+    }
+    .deck-stage{position:fixed;inset:0;display:grid;place-items:center;}
+    .slide{
+      position:absolute;
+      width:1080px;
+      height:1440px;
+      overflow:hidden;
+      display:none;
+      flex-direction:column;
+      background:var(--paper);
+      transform-origin:center;
+    }
+    .slide.active{display:flex;}
+
+    .section-band{
+      position:relative;
+      height:128px;
+      flex:0 0 128px;
+      padding:0 64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background-color:var(--brand);
+      background-image:repeating-linear-gradient(
+        105deg,
+        rgba(255,255,255,.05) 0 2px,
+        transparent 2px 16px
+      );
+      color:white;
+    }
+    .section-band::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:6px;
+      background:var(--accent);
+    }
+    .section-identity{display:flex;align-items:center;gap:26px;min-width:0;}
+    .section-name{
+      font-size:56px;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:12px;
+      white-space:nowrap;
+    }
+    .section-divider{width:2px;height:44px;background:rgba(255,255,255,.4);}
+    .section-en{
+      font-size:21px;
+      line-height:1.1;
+      letter-spacing:5px;
+      color:rgba(255,255,255,.88);
+      font-weight:700;
+      font-style:italic;
+      white-space:nowrap;
+    }
+    .section-en small{
+      display:block;
+      margin-top:7px;
+      font-size:14px;
+      letter-spacing:3px;
+      color:rgba(255,255,255,.58);
+      font-weight:400;
+      font-style:normal;
+    }
+    .page-number{
+      margin-left:20px;
+      font-size:30px;
+      font-weight:800;
+      letter-spacing:1px;
+      font-style:italic;
+      white-space:nowrap;
+    }
+    .page-number span{
+      font-size:21px;
+      font-weight:400;
+      color:rgba(255,255,255,.65);
+      font-style:normal;
+    }
+
+    .page-content{
+      min-height:0;
+      flex:1 1 auto;
+      display:flex;
+      flex-direction:column;
+      padding:38px 64px 0;
+    }
+    .title-block h1{
+      margin:0;
+      font-size:47px;
+      line-height:1.28;
+      font-weight:800;
+      letter-spacing:.2px;
+      color:var(--ink);
+    }
+    .reading-purpose{
+      margin:16px 0 0;
+      font-size:24px;
+      line-height:1.58;
+      color:var(--sub);
+    }
+    .reading-purpose strong{color:var(--accent);font-weight:800;}
+
+    .paper-card{
+      position:relative;
+      margin-top:30px;
+      padding:30px 30px 24px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:6px;
+      box-shadow:0 10px 28px rgba(27,27,27,.07);
+    }
+    .paper-tag{
+      position:absolute;
+      top:-17px;
+      left:34px;
+      z-index:2;
+      transform:rotate(-2deg);
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 16px;
+      border-radius:3px;
+      background:#23272F;
+      box-shadow:0 3px 8px rgba(0,0,0,.18);
+      color:white;
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+    .paper-tag i{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+    }
+    .paper-meta{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:5px 8px 12px;
+      margin-bottom:14px;
+      border-bottom:1px solid var(--line);
+      color:#9A948A;
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:2px;
+      text-transform:uppercase;
+    }
+    .paper-image{
+      width:100%;
+      height:280px;
+      display:block;
+      object-fit:contain;
+      object-position:center;
+    }
+    .figure-page .paper-image{height:360px;}
+
+    .reading-notes-section{margin-top:30px;}
+    .notes-heading{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:17px;
+    }
+    .notes-heading .cyan-square{
+      width:12px;
+      height:12px;
+      flex:0 0 12px;
+      border-radius:2px;
+      background:var(--cyan);
+    }
+    .notes-heading .heading-zh{
+      font-size:25px;
+      font-weight:800;
+      letter-spacing:3px;
+      white-space:nowrap;
+    }
+    .notes-heading .heading-rule{height:1px;flex:1;background:var(--line);}
+    .notes-heading .heading-en{
+      color:var(--sub);
+      font-size:15px;
+      letter-spacing:3px;
+      font-style:italic;
+      white-space:nowrap;
+    }
+    .translation-copy{
+      margin:0;
+      color:var(--body);
+      font-size:29px;
+      line-height:1.72;
+      font-weight:500;
+    }
+    .reading-highlight{
+      padding:3px 7px;
+      border-radius:4px;
+      background:var(--hl);
+      color:var(--hl-ink);
+      font-weight:800;
+      white-space:nowrap;
+      box-decoration-break:clone;
+      -webkit-box-decoration-break:clone;
+    }
+    .reading-annotations{display:grid;gap:14px;margin-top:20px;}
+    .reading-annotation{
+      display:flex;
+      align-items:stretch;
+      gap:18px;
+    }
+    .annotation-bar{
+      width:5px;
+      flex:0 0 5px;
+      border-radius:3px;
+      background:var(--brand);
+    }
+    .annotation-2 .annotation-bar{background:var(--accent);}
+    .annotation-3 .annotation-bar{background:var(--cyan);}
+    .reading-annotation p{
+      margin:0;
+      color:#45413A;
+      font-size:25px;
+      line-height:1.55;
+    }
+    .reading-annotation strong{
+      margin-right:14px;
+      color:var(--ink);
+      font-size:25px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+    .annotation-2 strong{color:var(--accent);}
+
+    .figure-annotations{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px 24px;
+      margin-top:2px;
+    }
+    .figure-annotation{
+      display:flex;
+      gap:14px;
+      min-width:0;
+    }
+    .figure-annotation .annotation-bar{width:5px;flex:0 0 5px;}
+    .figure-annotation:nth-child(2) .annotation-bar{background:var(--accent);}
+    .figure-annotation:nth-child(3) .annotation-bar{background:var(--cyan);}
+    .figure-annotation:nth-child(4) .annotation-bar{background:var(--brand);}
+    .figure-annotation p{margin:0;font-size:22px;line-height:1.42;color:#45413A;}
+    .figure-annotation strong{display:block;font-size:23px;color:var(--ink);}
+    .figure-annotation em{color:var(--accent);font-style:normal;font-weight:800;}
+
+    .page-takeaway{
+      margin-top:26px;
+      padding:20px 28px;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      border-radius:14px;
+      background:var(--brand-deep);
+      color:white;
+    }
+    .page-takeaway span{
+      flex:0 0 auto;
+      padding:7px 13px;
+      border-radius:6px;
+      background:var(--accent);
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+    .page-takeaway strong{font-size:27px;line-height:1.45;font-weight:800;}
+
+    .evidence-footer{
+      flex:0 0 auto;
+      margin:28px 64px 0;
+      padding:17px 0 23px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:var(--sub);
+      font-size:18px;
+      letter-spacing:.6px;
+    }
+    .footer-brand{display:flex;align-items:center;gap:14px;font-weight:700;}
+    .footer-brand img{height:36px;width:auto;display:block;mix-blend-mode:multiply;}
+    .footer-series{padding-left:14px;border-left:1px solid var(--line);}
+    .footer-evidence{text-align:right;white-space:nowrap;}
+
+    .agenda-page .page-content{padding-top:42px;}
+    .agenda-list{display:grid;gap:0;margin-top:36px;}
+    .agenda-row{
+      min-height:126px;
+      display:grid;
+      grid-template-columns:86px 1fr 80px;
+      align-items:center;
+      border-bottom:1px solid var(--line);
+    }
+    .agenda-number{
+      color:var(--accent);
+      font-size:25px;
+      font-weight:800;
+      font-style:italic;
+    }
+    .agenda-label{font-size:36px;font-weight:800;color:var(--ink);}
+    .agenda-page-number{text-align:right;color:var(--sub);font-size:25px;font-weight:700;}
+    .agenda-page .page-takeaway{margin-top:auto;}
+
+    .cover-page{padding:0 64px;}
+    .cover-top{
+      height:122px;
+      flex:0 0 122px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      border-bottom:2px solid #d4dbea;
+    }
+    .cover-top img{height:66px;width:auto;mix-blend-mode:multiply;}
+    .cover-top-label{
+      position:relative;
+      padding-bottom:12px;
+      color:var(--brand);
+      font-size:32px;
+      font-weight:800;
+      letter-spacing:4px;
+    }
+    .cover-top-label::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:0;
+      width:190px;
+      height:4px;
+      transform:translateX(-50%);
+      background:linear-gradient(90deg,var(--accent) 0 28%,var(--brand) 28%);
+    }
+    .cover-page-number{color:var(--brand);font-size:25px;font-weight:800;font-style:italic;}
+    .cover-page-number{justify-self:end;}
+    .cover-page-number span{color:var(--sub);font-size:18px;font-style:normal;}
+    .cover-hero{padding-top:58px;}
+    .cover-kicker{color:var(--accent);font-size:21px;font-weight:800;letter-spacing:4px;}
+    .cover-hero h1{
+      max-width:900px;
+      margin:22px 0 0;
+      font-size:64px;
+      line-height:1.24;
+      font-weight:800;
+      color:var(--ink);
+    }
+    .cover-title-line{display:block;}
+    .cover-hero p{margin:24px 0 0;font-size:28px;line-height:1.6;color:var(--sub);}
+    .cover-evidence-grid{
+      height:690px;
+      margin-top:38px;
+      display:grid;
+      grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+      grid-template-rows:minmax(0,1fr);
+      gap:20px;
+    }
+    .cover-source-paper,
+    .cover-feature-figure{
+      position:relative;
+      min-width:0;
+      margin:0;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:6px;
+      box-shadow:0 10px 28px rgba(27,27,27,.07);
+      overflow:hidden;
+    }
+    .cover-source-paper{
+      min-height:0;
+      height:100%;
+      padding:32px 24px 20px;
+      display:flex;
+      flex-direction:column;
+      overflow:visible;
+    }
+    .cover-source-paper .paper-meta{
+      display:block;
+      padding-left:8px;
+      white-space:nowrap;
+    }
+    .cover-source-paper .paper-image{
+      min-height:0;
+      flex:1;
+      object-fit:contain;
+    }
+    .cover-feature-stack{
+      min-width:0;
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:20px;
+    }
+    .cover-feature-figure{
+      padding:18px 20px 16px;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+    .cover-feature-head{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:10px;
+      color:var(--brand);
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+    .cover-feature-head::before{
+      content:"";
+      width:8px;
+      height:8px;
+      flex:0 0 8px;
+      border-radius:50%;
+      background:var(--accent);
+    }
+    .cover-feature-figure img{
+      min-height:0;
+      width:100%;
+      flex:1;
+      display:block;
+      object-fit:contain;
+      object-position:center;
+    }
+    .cover-feature-figure figcaption{
+      margin-top:10px;
+      color:var(--sub);
+      font-size:16px;
+      line-height:1.35;
+    }
+    .cover-paper{margin-top:52px;padding:34px;}
+    .cover-paper .paper-image{height:510px;}
+    .cover-page .evidence-footer{
+      margin-left:0;
+      margin-right:0;
+      margin-top:auto;
+      border-top:2px solid #d4dbea;
+    }
+
+    .generic-page .page-content{justify-content:flex-start;}
+    .generic-body{
+      margin-top:42px;
+      display:grid;
+      gap:16px;
+    }
+    .generic-block{padding-left:20px;border-left:5px solid var(--brand);}
+    .generic-block strong{color:var(--accent);font-size:22px;}
+    .generic-block p{margin:8px 0 0;font-size:27px;line-height:1.6;}
+
+    .viewer-counter{
+      position:fixed;
+      right:18px;
+      bottom:14px;
+      z-index:10;
+      color:white;
+      font:700 13px/1 Arial,sans-serif;
+      letter-spacing:.1em;
+      opacity:.7;
+    }
+    @media print{
+      html,body{overflow:visible;background:white;}
+      .deck-stage{position:static;display:block;}
+      .slide,.slide.active{position:relative;display:flex;transform:none!important;page-break-after:always;}
+      .viewer-counter{display:none;}
+    }
+  </style>
+</head>
+<body>
+  <main class="deck-stage" aria-label="{{ deck.title }}">
+  {% for slide in deck.slides %}
+    {% set component = slide.visual.component %}
+    {% set data = slide.visual.data %}
+    {% if slide.page_type == "cover" %}
+    <section class="slide cover-page" id="slide-{{ "%02d"|format(loop.index) }}" data-slide-index="{{ loop.index0 }}">
+      <header class="cover-top">
+        {% if logo_data_uri %}<img src="{{ logo_data_uri }}" alt="HLS 海乐思">{% endif %}
+        <div class="cover-top-label">{{ data.get("top_label", "") }}</div>
+        <div class="cover-page-number">{{ "%02d"|format(loop.index) }} <span>/ {{ deck.slides|length }}</span></div>
+      </header>
+      <div class="cover-hero">
+        <div class="cover-kicker">HLS 论文带读 · ACADEMIC SIGNAL</div>
+        <h1{% if data.get("title_size") %} style="font-size:{{ data.get("title_size") }}px{% if data.get("title_line_height") %};line-height:{{ data.get("title_line_height") }}{% endif %}"{% endif %}>
+          {% if "，" in slide.title %}
+          {% set cover_title_parts = slide.title.split("，", 1) %}
+          <span class="cover-title-line">{{ cover_title_parts[0] }}，</span>
+          <span class="cover-title-line">{{ cover_title_parts[1] }}</span>
+          {% else %}
+          <span class="cover-title-line">{{ slide.title }}</span>
+          {% endif %}
+        </h1>
+        {% if slide.lead %}<p{% if data.get("lead_size") %} style="font-size:{{ data.get("lead_size") }}px"{% endif %}>{{ slide.lead }}</p>{% endif %}
+      </div>
+      {% set cover_features = data.get("feature_figures", []) %}
+      {% if data.get("source_image") and cover_features %}
+      <div class="cover-evidence-grid">
+        <figure class="cover-source-paper">
+          <div class="paper-tag"><i></i>今日文献</div>
+          <div class="paper-meta"><span>{{ data.get("journal_left", "作者 ET AL.") }}</span></div>
+          <img class="paper-image" src="{{ asset_data_uris.get(data.source_image) }}" alt="{{ data.get("source_alt", "论文首页") }}">
+        </figure>
+        <div class="cover-feature-stack">
+          {% for figure in cover_features %}
+          <figure class="cover-feature-figure">
+            <div class="cover-feature-head">{{ figure.label }}</div>
+            <img src="{{ asset_data_uris.get(figure.image) }}" alt="{{ figure.get("alt", figure.label) }}">
+            <figcaption>{{ figure.caption }}</figcaption>
+          </figure>
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      <figure class="paper-card cover-paper">
+        <div class="paper-tag"><i></i>今日文献</div>
+        <div class="paper-meta"><span>{{ data.get("journal_left", "作者 ET AL.") }}</span><span>{{ data.get("journal_right", "期刊 · 年份") }}</span></div>
+        {% if data.get("source_image") %}
+        <img class="paper-image" src="{{ asset_data_uris.get(data.source_image) }}" alt="{{ data.get("source_alt", "论文首页") }}">
+        {% else %}
+        <div class="generic-body"><div class="generic-block"><p>{{ data.get("kicker", slide.lead) }}</p></div></div>
+        {% endif %}
+      </figure>
+      {% endif %}
+      <footer class="evidence-footer">
+        <div class="footer-brand">{% if logo_data_uri %}<img src="{{ logo_data_uri }}" alt="HLS 海乐思">{% endif %}<span class="footer-series">论文带读 · ACADEMIC SIGNAL</span></div>
+        <div class="footer-evidence">Evidence · {{ slide.evidence_label }}</div>
+      </footer>
+    </section>
+    {% elif component == "agenda-reading" %}
+    <section class="slide agenda-page" id="slide-{{ "%02d"|format(loop.index) }}" data-slide-index="{{ loop.index0 }}">
+      <header class="section-band">
+        <div class="section-identity"><div class="section-name">{{ slide.section_meta.zh }}</div><div class="section-divider"></div><div class="section-en">{{ slide.section_meta.en }}<small>SECTION {{ slide.section_meta.number }} · 论文带读</small></div></div>
+        <div class="page-number">{{ "%02d"|format(loop.index) }} <span>/ {{ deck.slides|length }}</span></div>
+      </header>
+      <div class="page-content">
+        <div class="title-block">
+          <h1>{{ slide.title }}</h1>
+          {% if slide.lead %}<p class="reading-purpose"><strong>这套怎么读：</strong>{{ slide.lead }}</p>{% endif %}
+        </div>
+        <div class="agenda-list">
+          {% for item in data.get("items", []) %}
+          <div class="agenda-row">
+            <span class="agenda-number">{{ item.number }}</span>
+            <span class="agenda-label">{{ item.label }}</span>
+            <span class="agenda-page-number">{{ item.page }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="page-takeaway"><span>阅读路线</span><strong>{{ data.get("takeaway", "先看问题，再看证据，最后看结论边界。") }}</strong></div>
+      </div>
+      <footer class="evidence-footer">
+        <div class="footer-brand">{% if logo_data_uri %}<img src="{{ logo_data_uri }}" alt="HLS 海乐思">{% endif %}<span class="footer-series">论文带读 · ACADEMIC SIGNAL</span></div>
+        <div class="footer-evidence">Evidence · {{ slide.evidence_label }}</div>
+      </footer>
+    </section>
+    {% elif component in ["source-reading", "figure-reading"] %}
+    <section class="slide reading-page{% if component == "figure-reading" %} figure-page{% endif %}" id="slide-{{ "%02d"|format(loop.index) }}" data-slide-index="{{ loop.index0 }}">
+      <header class="section-band">
+        <div class="section-identity"><div class="section-name">{{ slide.section_meta.zh }}</div><div class="section-divider"></div><div class="section-en">{{ slide.section_meta.en }}<small>SECTION {{ slide.section_meta.number }} · 论文带读</small></div></div>
+        <div class="page-number">{{ "%02d"|format(loop.index) }} <span>/ {{ deck.slides|length }}</span></div>
+      </header>
+      <div class="page-content">
+        <div class="title-block">
+          <h1>{{ slide.title }}</h1>
+          {% if slide.lead %}<p class="reading-purpose"><strong>这页读什么：</strong>{{ slide.lead }}</p>{% endif %}
+        </div>
+        <figure class="paper-card">
+          <div class="paper-tag"><i></i>{% if component == "figure-reading" %}{{ data.figure_number }}{% else %}原文 PDF{% endif %} · P.{{ data.source_page }}</div>
+          <div class="paper-meta"><span>{{ data.get("journal_left", "作者 ET AL.") }}</span><span>{{ data.get("journal_right", "期刊 · 年份") }}</span></div>
+          {% if component == "figure-reading" %}
+          <img class="paper-image" src="{{ asset_data_uris.get(data.figure_image) }}" alt="{{ data.get("figure_alt", "论文原始图表") }}">
+          {% else %}
+          <img class="paper-image" src="{{ asset_data_uris.get(data.source_image) }}" alt="{{ data.get("source_alt", "论文原文截图") }}">
+          {% endif %}
+        </figure>
+        <div class="reading-notes-section">
+          <div class="notes-heading"><span class="cyan-square"></span><span class="heading-zh">带读笔记</span><span class="heading-rule"></span><span class="heading-en">TRANSLATION · NOTES</span></div>
+          {% if component == "source-reading" %}
+          <p class="translation-copy">
+            {% for segment in data.get("translation_segments", []) %}
+            <span{% if segment.emphasis %} class="reading-highlight"{% endif %}>{{ segment.text }}</span>
+            {% endfor %}
+          </p>
+          <div class="reading-annotations">
+            {% for note in data.get("reading_notes", []) %}
+            <div class="reading-annotation annotation-{{ loop.index }}"><span class="annotation-bar"></span><p><strong>{{ note.label }}</strong>{{ note.text }}</p></div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="figure-annotations">
+            {% for note in data.get("reading_notes", []) %}
+            <div class="figure-annotation"><span class="annotation-bar"></span><p><strong>{{ note.label }} <em>{{ note.get("value", "") }}</em></strong>{{ note.get("detail", "") }}</p></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div class="page-takeaway"><span>一句话记住</span><strong>{{ data.get("takeaway", slide.lead) }}</strong></div>
+      </div>
+      <footer class="evidence-footer">
+        <div class="footer-brand">{% if logo_data_uri %}<img src="{{ logo_data_uri }}" alt="HLS 海乐思">{% endif %}<span class="footer-series">论文带读 · ACADEMIC SIGNAL</span></div>
+        <div class="footer-evidence">Evidence · {{ slide.evidence_label }}</div>
+      </footer>
+    </section>
+    {% else %}
+    <section class="slide generic-page" id="slide-{{ "%02d"|format(loop.index) }}" data-slide-index="{{ loop.index0 }}">
+      <header class="section-band">
+        <div class="section-identity"><div class="section-name">{{ slide.section_meta.zh or "论文带读" }}</div><div class="section-divider"></div><div class="section-en">{{ slide.section_meta.en }}<small>SECTION {{ slide.section_meta.number or "00" }} · 论文带读</small></div></div>
+        <div class="page-number">{{ "%02d"|format(loop.index) }} <span>/ {{ deck.slides|length }}</span></div>
+      </header>
+      <div class="page-content">
+        <div class="title-block"><h1>{{ slide.title }}</h1>{% if slide.lead %}<p class="reading-purpose"><strong>这页读什么：</strong>{{ slide.lead }}</p>{% endif %}</div>
+        <div class="generic-body">
+          {% for block in slide.content_blocks %}
+          <div class="generic-block">{% if block.label %}<strong>{{ block.label }}</strong>{% endif %}{% if block.text %}<p>{{ block.text }}</p>{% endif %}</div>
+          {% endfor %}
+        </div>
+        <div class="page-takeaway"><span>一句话记住</span><strong>{{ data.get("takeaway", slide.lead) }}</strong></div>
+      </div>
+      <footer class="evidence-footer">
+        <div class="footer-brand">{% if logo_data_uri %}<img src="{{ logo_data_uri }}" alt="HLS 海乐思">{% endif %}<span class="footer-series">论文带读 · ACADEMIC SIGNAL</span></div>
+        <div class="footer-evidence">Evidence · {{ slide.evidence_label }}</div>
+      </footer>
+    </section>
+    {% endif %}
+  {% endfor %}
+  </main>
+  <div class="viewer-counter" aria-live="polite"></div>
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll(".slide")];
+      const counter = document.querySelector(".viewer-counter");
+      let current = 0;
+      function fromHash(){
+        const match = location.hash.match(/slide-(\d+)/);
+        return match ? Math.max(0,Math.min(slides.length - 1,Number(match[1]) - 1)) : 0;
+      }
+      function fit(){
+        const scale = Math.min(innerWidth / 1080,innerHeight / 1440);
+        slides.forEach(slide => { slide.style.transform = `scale(${scale})`; });
+      }
+      function show(index,updateHash=true){
+        current = Math.max(0,Math.min(slides.length - 1,index));
+        slides.forEach((slide,i) => slide.classList.toggle("active",i === current));
+        counter.textContent = `${String(current + 1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;
+        if(updateHash) history.replaceState(null,"",`#slide-${String(current + 1).padStart(2,"0")}`);
+      }
+      addEventListener("keydown",event => {
+        if(["ArrowRight","PageDown"," "].includes(event.key)) show(current + 1);
+        if(["ArrowLeft","PageUp"].includes(event.key)) show(current - 1);
+        if(event.key === "Home") show(0);
+        if(event.key === "End") show(slides.length - 1);
+        if(event.key.toLowerCase() === "f") document.documentElement.requestFullscreen?.();
+      });
+      addEventListener("hashchange",() => show(fromHash(),false));
+      addEventListener("resize",fit);
+      fit();
+      show(fromHash(),false);
+      window.__HLS_DECK_READY__ = true;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "吐司学长视频制作"
+  short_description: "复用吐司角色、真实场景与复古便签，将新文案和配音制作成同风格视频"
+  default_prompt: "使用 $toast-ip-video，根据我提供的新文案、配音和资料素材制作同风格视频，保留完整内容与钩子，完成字幕、动效、混音和渲染。"

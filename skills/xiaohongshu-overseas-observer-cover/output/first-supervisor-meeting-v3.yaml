@@ -1,0 +1,65 @@
+canvas:
+  width: 1080
+  height: 1440
+  background: "#F6F2E8"
+content:
+  masthead_lines: ["THE OVERSEAS", "OBSERVER"]
+  tagline: "Reflect Live Better For a slower wiser you"
+  year: "2026"
+  journal_label: "JOURNAL"
+  english_headline_lines:
+    - "Your First Supervisor Meeting"
+    - "Is Not an Audition"
+  chinese_headline_lines:
+    - "第一次见导师"
+    - "不用急着"
+    - "证明自己"
+  english_summary: "The first meeting is for building a shared map, not displaying a finished answer. Bring your questions, listen closely, and leave with one clear next step."
+  chinese_summary: "第一次见导师，不是交一份完美答卷。带上真实问题，听清反馈，最后确认一个明确的下一步就够了。"
+  rail:
+    - {number: "01", english: "Supervisor", chinese: "导师沟通"}
+    - {number: "02", english: "Questions", chinese: "会前问题"}
+    - {number: "03", english: "Feedback", chinese: "反馈解码"}
+    - {number: "04", english: "Next Step", chinese: "下一步"}
+  rail_footer_lines: ["A useful meeting", "creates one", "clear action."]
+palette:
+  ink: "#11110F"
+  gray: "#85827A"
+  olive: "#7E8768"
+  divider: "#1A1A18"
+  illustration_background: "#B99645"
+layout:
+  left_margin: 24
+  right_rule_x: 858
+  right_rail_x: 885
+  top_margin: 18
+  masthead_line1_y: 16
+  masthead_line2_y: 86
+  tagline_y: 194
+  top_rule_y: 240
+  english_headline_y: 262
+  chinese_headline_y: 356
+  chinese_headline_line_gap: 2
+  summary_rule_y: 702
+  english_summary_y: 722
+  chinese_summary_y: 823
+  summary_max_width: 680
+  summary_block_gap: 12
+  illustration_y: 920
+  illustration_height: 520
+  globe_center_x: 786
+  globe_center_y: 151
+font_sizes:
+  masthead_line1: 72
+  masthead_line2: 92
+  tagline: 29
+  english_headline: 39
+  chinese_headline: 98
+  english_summary: 24
+  chinese_summary: 24
+  rail_year: 25
+  rail_journal: 31
+  rail_number: 28
+  rail_english: 25
+  rail_chinese: 23
+  rail_footer: 20

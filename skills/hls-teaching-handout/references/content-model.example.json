@@ -1,0 +1,39 @@
+{
+  "document": {
+    "title": "文献综述写作指南",
+    "subtitle": "从文献整理到批判性综合",
+    "type": "textbook_handout",
+    "audience": "英国硕士留学生",
+    "language": "zh-CN",
+    "cover_kicker": "学术学习资料",
+    "cover_title": "文献综述写作指南",
+    "cover_subtitle": "从文献整理到批判性综合",
+    "cover_topics": ["检索", "分类", "比较", "综合"]
+  },
+  "chapters": [
+    {
+      "number": "第一章",
+      "id": "ch1",
+      "title": "Literature Review 的基本任务",
+      "guide": [
+        "理解文献综述需要回答的核心问题",
+        "区分逐篇摘要与批判性综合"
+      ],
+      "sections": [
+        {
+          "number": "1.1",
+          "id": "s1-1",
+          "title": "文献综述需要回答什么",
+          "subsections": [],
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "正文内容……",
+              "source_refs": ["SRC-001"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

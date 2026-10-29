@@ -1,0 +1,202 @@
+{
+  "schema_version": "1",
+  "capabilities": ["generate_ppt", "synthesize_video", "render_cover", "environment_check"],
+  "dependencies": [
+    {
+      "id": "node-runtime",
+      "type": "runtime",
+      "required": true,
+      "auth_type": "none",
+      "capabilities": ["generate_ppt"],
+      "checks": [
+        {"id": "managed-node", "type": "file", "required": true, "path": "~/.workbuddy/binaries/node/versions/22.22.2/node.exe"},
+        {"id": "pptxgenjs", "type": "file", "required": true, "path": "~/.workbuddy/binaries/node/workspace/node_modules/pptxgenjs"},
+        {"id": "python-base", "type": "python", "required": true, "min_version": "3.10"}
+      ],
+      "setup": {
+        "official_home_url": "https://nodejs.org/",
+        "official_docs_url": "https://nodejs.org/docs/latest/",
+        "steps": [
+          "从 https://nodejs.org/ 安装 Node.js 22 或更高版本。",
+          "在 managed node workspace 执行 npm install pptxgenjs，确认 node_modules/pptxgenjs 存在。",
+          "PPT 环节实际由 hls-dissertation-ppt 完成，环境按其规范检查。"
+        ],
+        "verify": "node --version 输出 v22 及以上；pptxgenjs 目录存在。",
+        "security": "不安装全局包；依赖只装在 managed workspace。",
+        "verified_at": "2026-08-26",
+        "applies_to_version": "1.0.0"
+      },
+      "degradation": [
+        {
+          "capability": "generate_ppt",
+          "trigger": "node 可执行文件或 pptxgenjs 缺失",
+          "fallback": "由用户在 PowerPoint/WPS 手工排版，或安装缺失依赖后重跑阶段 1",
+          "user_input": "缺失项的安装结果确认",
+          "limitations": "无法自动产出可编辑 .pptx",
+          "evidence_label": "未验证",
+          "recovery": "按 setup 步骤安装 node/pptxgenjs 后重跑环境检查",
+          "stop_condition": "用户无法手工排版且依赖不可用"
+        }
+      ]
+    },
+    {
+      "id": "ffmpeg-cli",
+      "type": "cli",
+      "required": true,
+      "auth_type": "none",
+      "capabilities": ["synthesize_video"],
+      "checks": [
+        {"id": "ffmpeg", "type": "cli", "required": true, "command": "ffmpeg"},
+        {"id": "ffmpeg-version", "type": "cli_probe", "required": true, "target": "ffmpeg -version 最小只读版本探测"},
+        {"id": "ffprobe", "type": "cli", "required": true, "command": "ffprobe"}
+      ],
+      "setup": {
+        "official_home_url": "https://ffmpeg.org/",
+        "official_docs_url": "https://ffmpeg.org/documentation.html",
+        "steps": [
+          "从 https://ffmpeg.org/download.html 下载构建版并加入 PATH。",
+          "运行 ffmpeg -version 与 ffprobe -version 确认两个命令均可用。"
+        ],
+        "verify": "ffmpeg -version 与 ffprobe -version 均输出版本信息。",
+        "security": "只使用 PATH 内的系统 ffmpeg，不下载不明来源二进制。",
+        "verified_at": "2026-08-26",
+        "applies_to_version": "1.0.0"
+      },
+      "degradation": [
+        {
+          "capability": "synthesize_video",
+          "trigger": "ffmpeg 或 ffprobe 缺失",
+          "fallback": "输出 slide_timings.csv 与逐页 PNG，由用户在其他工具合成",
+          "user_input": "可用的 ffmpeg 路径或外部合成结果",
+          "limitations": "无法产出最终 MP4",
+          "evidence_label": "未验证",
+          "recovery": "安装 ffmpeg 并加入 PATH 后重跑环境检查",
+          "stop_condition": "用户需要 MP4 且 ffmpeg 不可用"
+        }
+      ]
+    },
+    {
+      "id": "python-pillow",
+      "type": "runtime",
+      "required": true,
+      "auth_type": "none",
+      "capabilities": ["render_cover", "synthesize_video"],
+      "checks": [
+        {"id": "pillow", "type": "file", "required": true, "path": "~/.workbuddy/binaries/python/versions/3.13.12/Lib/site-packages/PIL"},
+        {"id": "font-serif", "type": "file", "required": true, "path": "C:/Windows/Fonts/NotoSerifSC-VF.ttf"},
+        {"id": "font-sans", "type": "file", "required": true, "path": "C:/Windows/Fonts/NotoSansSC-VF.ttf"},
+        {"id": "font-en", "type": "file", "required": true, "path": "C:/Windows/Fonts/times.ttf"}
+      ],
+      "setup": {
+        "official_home_url": "https://python-pillow.org/",
+        "official_docs_url": "https://pillow.readthedocs.io/",
+        "steps": [
+          "使用 managed Python（~/.workbuddy/binaries/python/versions/3.13.12/python.exe，自带 Pillow 12.3.0）。",
+          "确认字体存在：NotoSerifSC-VF.ttf、NotoSansSC-VF.ttf、times.ttf（C:/Windows/Fonts/）。"
+        ],
+        "verify": "python -c \"import PIL\" 无报错；三个字体文件存在。",
+        "security": "不额外安装包；字体只用系统字体文件。",
+        "verified_at": "2026-08-26",
+        "applies_to_version": "1.0.0"
+      },
+      "degradation": [
+        {
+          "capability": "render_cover",
+          "trigger": "Pillow 或封面字体缺失",
+          "fallback": "输出封面三要素 JSON，由用户在其他工具排版",
+          "user_input": "缺失项的安装结果确认",
+          "limitations": "无法自动产出封面 PNG",
+          "evidence_label": "未验证",
+          "recovery": "按 setup 步骤补齐 Pillow/字体后重跑环境检查",
+          "stop_condition": "用户需要封面图且依赖不可用"
+        },
+        {
+          "capability": "synthesize_video",
+          "trigger": "Pillow 不可用导致幻灯片无法直渲",
+          "fallback": "改用现有 PPT 导出的 PNG 或用户提供的图片目录",
+          "user_input": "现有幻灯片图片或可导出环境",
+          "limitations": "可能缺少与口播稿匹配的逐页画面",
+          "evidence_label": "未验证",
+          "recovery": "恢复 Pillow 后重跑阶段 3",
+          "stop_condition": "无幻灯片图片且 Pillow 不可用"
+        }
+      ]
+    },
+    {
+      "id": "faster-whisper-env",
+      "type": "runtime",
+      "required": true,
+      "auth_type": "none",
+      "capabilities": ["synthesize_video"],
+      "checks": [
+        {"id": "video-venv", "type": "file", "required": true, "path": "E:/留学辅导小红书运营/.venv-video/Scripts/python.exe"}
+      ],
+      "setup": {
+        "official_home_url": "https://github.com/SYSTRAN/faster-whisper",
+        "official_docs_url": "https://github.com/SYSTRAN/faster-whisper#installation",
+        "steps": [
+          "使用项目转录环境 .venv-video（E:/留学辅导小红书运营/.venv-video/Scripts/python.exe，Python 3.12 + faster-whisper small）。",
+          "英文源 language=en、中文源 language=zh；逐文件独立进程，不循环复用模型。"
+        ],
+        "verify": "python -c \"import faster_whisper\" 无报错；模型缓存存在。",
+        "security": "模型只从官方 Hugging Face 缓存下载。",
+        "verified_at": "2026-08-26",
+        "applies_to_version": "1.0.0"
+      },
+      "degradation": [
+        {
+          "capability": "synthesize_video",
+          "trigger": ".venv-video 或 faster-whisper 模型缺失",
+          "fallback": "改用语音时长均分或用户提供的时间戳",
+          "user_input": "音频时长或逐段时间戳",
+          "limitations": "幻灯片切换点可能不贴合话题边界",
+          "evidence_label": "未验证",
+          "recovery": "恢复转录环境后重跑阶段 3",
+          "stop_condition": "需要精确对齐且转录不可用"
+        }
+      ]
+    }
+  ],
+  "functional_degradations": [
+    {
+      "capability": "generate_ppt",
+      "trigger": "阶段 1 生成失败或环境检查返回非 ready",
+      "fallback": "手工排版或修复依赖后重跑阶段 1",
+      "user_input": "缺失项的安装结果确认",
+      "limitations": "无法自动产出可编辑 .pptx",
+      "evidence_label": "未验证",
+      "recovery": "按 references/setup-guide.md 补齐依赖后重跑环境检查",
+      "stop_condition": "用户无法手工排版且依赖不可用"
+    },
+    {
+      "capability": "synthesize_video",
+      "trigger": "阶段 3 任一依赖缺失或合成失败",
+      "fallback": "输出工程文件（PNG + slide_timings.csv + 转录稿）由用户外部合成",
+      "user_input": "可用的 ffmpeg 路径或外部合成结果",
+      "limitations": "无法产出最终 MP4",
+      "evidence_label": "未验证",
+      "recovery": "修复对应依赖后重跑阶段 3",
+      "stop_condition": "用户需要 MP4 且无替代合成通道"
+    },
+    {
+      "capability": "render_cover",
+      "trigger": "阶段 4 渲染失败或字体缺失",
+      "fallback": "输出封面三要素 JSON 供其他工具排版",
+      "user_input": "缺失项的安装结果确认",
+      "limitations": "无法自动产出封面 PNG",
+      "evidence_label": "未验证",
+      "recovery": "补齐 Pillow/字体后重跑阶段 4",
+      "stop_condition": "用户需要封面图且依赖不可用"
+    },
+    {
+      "capability": "environment_check",
+      "trigger": "check_environment.py 无法运行或清单解析失败",
+      "fallback": "手工核对关键命令（node、ffmpeg、ffprobe、python）是否存在",
+      "user_input": "核对结果确认",
+      "limitations": "未做自动化判定，结果标为未验证",
+      "evidence_label": "未验证",
+      "recovery": "修复脚本或清单后重跑环境检查",
+      "stop_condition": "无法确认核心依赖可用且任务依赖自动检查"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <style>
+    body { margin:0; background:#FAFBFD; font-family:Arial,"Microsoft YaHei",sans-serif; }
+    .sheet { width:1080px; height:1440px; display:grid; grid-template-rows:1fr 1fr; gap:24px; padding:24px; }
+    img { width:1032px; height:672px; object-fit:contain; background:white; }
+  </style>
+</head>
+<body><div class="sheet">{% for image in images %}<img src="{{ image }}" alt="slide">{% endfor %}</div></body>
+</html>

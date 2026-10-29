@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 教程口播剪辑"
+  short_description: "将真人口播、AI 示例与实操录屏剪成教程，沿用已确认的字幕、提示词卡和封面审美"
+  default_prompt: "用 $ai-tutorial-video-editing 整理素材并完成这条 AI 教程口播视频，沿用我的默认审美，交付成片、封面与可复现文件。"

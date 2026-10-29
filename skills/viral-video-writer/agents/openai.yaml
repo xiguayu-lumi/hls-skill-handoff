@@ -1,0 +1,4 @@
+interface:
+  display_name: "Viral Video Writer"
+  short_description: "Evidence-grounded scripts for any video topic or platform"
+  default_prompt: "Use $viral-video-writer to turn my approved footage review into a compelling video script."

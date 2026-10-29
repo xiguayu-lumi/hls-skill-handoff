@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hls-paper-to-academic-html"
+version = "0.1.0"
+description = "Evidence-first academic PDF to HLS-branded offline HTML tooling"
+requires-python = ">=3.11"
+dependencies = [
+  "Jinja2>=3.1,<4",
+  "jsonschema>=4.23,<5",
+  "Pillow>=11,<13",
+  "pydantic>=2.10,<3",
+  "PyMuPDF>=1.25,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.packages.find]
+include = ["hls_academic*"]

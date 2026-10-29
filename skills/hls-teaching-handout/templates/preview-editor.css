@@ -1,0 +1,71 @@
+:root {
+  color-scheme: light;
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  background: #e9edf5;
+  color: #17233f;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+#hls-editor-toolbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid #c8d2e6;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 3px 14px rgba(20, 47, 98, 0.08);
+}
+
+#hls-editor-toolbar button,
+#hls-editor-toolbar select {
+  min-height: 34px;
+  border: 1px solid #b7c3da;
+  border-radius: 5px;
+  background: #fff;
+  color: #24334f;
+  padding: 5px 9px;
+}
+
+#hls-editor-toolbar label {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 13px;
+}
+
+#hls-editor-toolbar button:hover { border-color: #2450c8; }
+#hls-editor-toolbar .primary { background: #2450c8; color: #fff; border-color: #2450c8; }
+#hls-editor-toolbar :disabled { opacity: 0.55; cursor: not-allowed; }
+
+#editor-status {
+  min-height: 38px;
+  padding: 9px 16px;
+  background: #fff4ec;
+  border-bottom: 1px solid #f0d4c5;
+  font-size: 14px;
+}
+
+#editor-status[data-state="error"] { color: #a32222; background: #fff0f0; }
+#editor-status[data-state="complete"] { color: #174f2a; background: #edf9f0; }
+
+#preview-shell { padding: 20px; }
+#document-frame {
+  display: block;
+  width: min(1120px, 100%);
+  min-height: 78vh;
+  margin: 0 auto;
+  border: 0;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(17, 39, 80, 0.16);
+}
+
+@media (max-width: 760px) {
+  #preview-shell { padding: 8px; }
+  #hls-editor-toolbar { position: static; }
+}

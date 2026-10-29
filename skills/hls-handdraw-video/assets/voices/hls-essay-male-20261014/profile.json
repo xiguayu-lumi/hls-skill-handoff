@@ -1,0 +1,45 @@
+{
+  "id": "hls-essay-male-20261014",
+  "name": "Essay第一段年轻男声",
+  "user_quote": "然后这个语音保持住",
+  "confirmed_date": "2026-10-14",
+  "reference_audio": "reference.wav",
+  "reference_text": "reference.txt",
+  "reference_sha256": "9773a16276d933a3983dddf3840727126001723c2b32f065c25baf2256073131",
+  "transcript_sha256": "56cdb62277deb54af330b617a258b44fd87a43fb0a84c7600e45cfe13a06a14c",
+  "source_audio": "E:\\留学辅导小红书运营\\内容项目\\2026-10-14_Essay第一段手绘\\02_脚本与配音\\旁白_v2.wav",
+  "source_audio_sha256": "e51c31614ed92155bf717768066b2c5d2fea7da044b7d4f1cfe4b4bf2f936fcf",
+  "source_interval": [
+    18.1,
+    28.94
+  ],
+  "duration": 10.84,
+  "sample_rate": 48000,
+  "channels": 1,
+  "sample_width": 2,
+  "kind": "user_selected_synthetic_voice_excerpt",
+  "description": "年轻成年男声，温和清晰，正常偏慢的中文讲解语速，英语术语发音自然，句间停顿清楚，不使用播音腔",
+  "original_mode": "voice_design",
+  "continuation_mode": "combined",
+  "engine": "VoxCPM2",
+  "voxcpm_version": "2.0.3",
+  "model_path": "E:\\sweety-handdraw-runtime\\models\\VoxCPM2",
+  "model_config_sha256": "405f0dcd92f7feba6011ed4eac5c8d4f74cba9712f07fd5cfa3063bbdd95402c",
+  "seed": 2027,
+  "timesteps": 10,
+  "cfg_value": 2.0,
+  "original_max_len": 10000,
+  "verification": "Source hash and sample-accurate excerpt checked; transcript agrees with existing ASR cues 15-21 (homophone 它/他 retained as source text).",
+  "continuation_test": "No new TTS generated in this skill update; compare future generated voice with this reference.",
+  "verified_reuse_examples": [
+    {
+      "project": "Essay三步写作",
+      "video": "E:\\留学辅导小红书运营\\内容项目\\2026-10-14_Essay三步写作手绘\\05_最终交付\\FA-035固定男声_v4\\Essay三步写作_固定男声_v4.mp4",
+      "narration_duration": 111.36,
+      "reference_sha256": "9773a16276d933a3983dddf3840727126001723c2b32f065c25baf2256073131",
+      "conditioning": "combined",
+      "text_and_sync_checks": "PASS",
+      "subjective_listening": "not_performed"
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+{
+  "title": "Sample Student A  1",
+  "course": "open 24",
+  "student": "A  1",
+  "professor": "Bradford",
+  "date": "3 April 2013",
+  "question": null,
+  "paragraphs": [
+    {
+      "text": "Sample Student A  1",
+      "page": 1,
+      "bbox": [
+        58.263763427734375,
+        104.38446807861328,
+        438.9599914550781,
+        126.55154418945312
+      ]
+    },
+    {
+      "text": "Sample Student A",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        132.8352508544922,
+        131.37631225585938,
+        145.5941925048828
+      ]
+    },
+    {
+      "text": "Professor Bradford",
+      "page": 1,
+      "bbox": [
+        58.26000213623047,
+        153.7602996826172,
+        134.82334899902344,
+        166.5192413330078
+      ]
+    },
+    {
+      "text": "English M02",
+      "page": 1,
+      "bbox": [
+        58.25999450683594,
+        174.6853485107422,
+        111.13094329833984,
+        187.4442901611328
+      ]
+    },
+    {
+      "text": "3 April 2013",
+      "page": 1,
+      "bbox": [
+        58.25999450683594,
+        195.6103973388672,
+        110.30559539794922,
+        208.3693389892578
+      ]
+    },
+    {
+      "text": "The Clown Vs. the Crown",
+      "page": 1,
+      "bbox": [
+        196.48184204101562,
+        237.50901794433594,
+        301.1070861816406,
+        250.26795959472656
+      ]
+    },
+    {
+      "text": "In the battle between McDonald’s and Burger King, scientists have devoted their lives to",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        258.38555908203125,
+        434.9106750488281,
+        271.14447021484375
+      ]
+    },
+    {
+      "text": "create a cheap, addictive source of sustenance better known as fast food.  For those who can’t",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        280.71856689453125,
+        424.1813659667969,
+        293.47747802734375
+      ]
+    },
+    {
+      "text": "afford a nice sit down restaurant, or are simply too hung-over and impatient to wait around for a",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        303.051513671875,
+        433.89129638671875,
+        315.8104553222656
+      ]
+    },
+    {
+      "text": "Comment [w1]: This might be amusing.  But does it fit in with the overall theme of the essay?",
+      "page": 1,
+      "bbox": [
+        466.0799865722656,
+        305.3213806152344,
+        595.9541625976562,
+        322.0457458496094
+      ]
+    },
+    {
+      "text": "hot meal, I recommend these fine eateries.  Conveniently located on every street corner,",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        325.384521484375,
+        401.9453125,
+        338.1434631347656
+      ]
+    },
+    {
+      "text": "McDonald’s is open 24/7 ready to nuke up a Happy Meal at all times.  McDonald’s is best",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        347.717529296875,
+        411.80120849609375,
+        360.4764709472656
+      ]
+    },
+    {
+      "text": "Comment [w2]: This sentence (with the verb “nuke”) reveals the playful nature of the essay.  It’s good to establish tone and voice early on.",
+      "page": 1,
+      "bbox": [
+        466.0799865722656,
+        349.98736572265625,
+        601.913818359375,
+        374.6280517578125
+      ]
+    },
+    {
+      "text": "known for its breakfast menu; however, they stop serving outrageously early.  So, if time is an",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        370.050537109375,
+        427.1913146972656,
+        382.8094482421875
+      ]
+    },
+    {
+      "text": "issue or lunch is what you desire, wave good-bye to McDonald’s as you pull into Burger King’s",
+      "page": 1,
+      "bbox": [
+        58.25999450683594,
+        392.383544921875,
+        433.6485290527344,
+        405.1424560546875
+      ]
+    },
+    {
+      "text": "drive through.  Burger King’s Whopper and other burger masterpieces put the Big Mac to shame.",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        414.716552734375,
+        441.41650390625,
+        427.4754638671875
+      ]
+    },
+    {
+      "text": "McDonald’s might dominate with its cheap yet satisfying breakfast, but Burger King rules over",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        437.049560546875,
+        431.2213439941406,
+        449.8084716796875
+      ]
+    },
+    {
+      "text": "the lunch crowd.",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        459.38250732421875,
+        130.50241088867188,
+        472.1414489746094
+      ]
+    },
+    {
+      "text": "Comment [w3]: This is a good compare/contrast thesis statement. M02 papers are often about topics that do not require extensive research.",
+      "page": 1,
+      "bbox": [
+        466.0799865722656,
+        461.6523742675781,
+        605.8335571289062,
+        486.2930603027344
+      ]
+    },
+    {
+      "text": "The McDonald’s breakfast blends perfectly together to give you that short satisfied",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        489.77484130859375,
+        412.5777587890625,
+        502.53375244140625
+      ]
+    },
+    {
+      "text": "feeling that slowly morphs into regret.  A piping hot cup of coffee, golden crisp has browns, and",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        512.1078491210938,
+        435.008056640625,
+        524.8667602539062
+      ]
+    },
+    {
+      "text": "a freshly heated sausage egg McMuffin sum up the American Dream.  Burger King’s weak",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        534.4408569335938,
+        414.6654357910156,
+        547.1997680664062
+      ]
+    },
+    {
+      "text": "attempt to compete with McDonald’s out of this world breakfast fails on all fronts.  First of all,",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        556.7738647460938,
+        429.327880859375,
+        569.5327758789062
+      ]
+    },
+    {
+      "text": "Burger King doesn’t get their coffee to that tongue-scorching hot temperature we’ve all come to",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        579.1068725585938,
+        433.7944641113281,
+        591.8657836914062
+      ]
+    },
+    {
+      "text": "love and endure.  Where is the thrill in drinking coffee if there’s no risk in burning yourself?",
+      "page": 1,
+      "bbox": [
+        58.25999450683594,
+        601.4398803710938,
+        422.2393493652344,
+        614.1987915039062
+      ]
+    },
+    {
+      "text": "Secondly, Burger King’s hash brown bites taste as if they forgot to add an ingredient; I call the",
+      "page": 1,
+      "bbox": [
+        58.2599983215332,
+        623.7728271484375,
+        429.0849609375,
+        636.53173828125
+      ]
+    },
+    {
+      "text": "Sample Student A  2",
+      "page": 2,
+      "bbox": [
+        58.263763427734375,
+        104.38446807861328,
+        438.9599914550781,
+        126.55154418945312
+      ]
+    },
+    {
+      "text": "missing ingredient taste.  Finally, Burger King’s breakfast sandwich closely mimics something",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        132.78660583496094,
+        429.2791442871094,
+        145.54554748535156
+      ]
+    },
+    {
+      "text": "you would find in a McDonald’s, just not as fulfilling.  Both establishments make a big mistake",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        155.11961364746094,
+        432.2891540527344,
+        167.87855529785156
+      ]
+    },
+    {
+      "text": "in not serving breakfast all day long; showing no love for those waking up at 11 a.m. If you’re up",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        177.45262145996094,
+        439.0861511230469,
+        190.21156311035156
+      ]
+    },
+    {
+      "text": "early and left with the decision between McDonald’s or Burger King for breakfast, make the",
+      "page": 2,
+      "bbox": [
+        58.260009765625,
+        199.78562927246094,
+        420.0545349121094,
+        212.54457092285156
+      ]
+    },
+    {
+      "text": "right choice and head over to McDonald’s.  For everybody else who is getting that late start,",
+      "page": 2,
+      "bbox": [
+        58.260009765625,
+        222.11863708496094,
+        418.7435607910156,
+        234.87757873535156
+      ]
+    },
+    {
+      "text": "Burger King won’t disappoint by providing a nice greasy lunch combo.",
+      "page": 2,
+      "bbox": [
+        58.260009765625,
+        244.45164489746094,
+        338.1507568359375,
+        257.2105712890625
+      ]
+    },
+    {
+      "text": "If you’re arguing between McDonald’s or Burger king for lunch, I’ll save you from",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        274.84393310546875,
+        413.7915954589844,
+        287.60284423828125
+      ]
+    },
+    {
+      "text": "flipping a coin.  Yes, we all know of the notorious Big Mac, but when compared with Burger",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        297.17694091796875,
+        422.5306701660156,
+        309.93585205078125
+      ]
+    },
+    {
+      "text": "King’s Whopper side by side, the Big Mac doesn’t look nearly as big or exciting as the",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        319.50994873046875,
+        398.5953674316406,
+        332.26885986328125
+      ]
+    },
+    {
+      "text": "Whopper.  The fry cooks put a little more time into broiling up a whole bunch of Burger King’s",
+      "page": 2,
+      "bbox": [
+        58.25999450683594,
+        341.84295654296875,
+        432.5805969238281,
+        354.60186767578125
+      ]
+    },
+    {
+      "text": "finest combo specials.  Ranging from Veggie Burgers to the Triple Stacker, Burger King has",
+      "page": 2,
+      "bbox": [
+        58.25999450683594,
+        364.17596435546875,
+        420.4429931640625,
+        376.93487548828125
+      ]
+    },
+    {
+      "text": "something for everyone’s unique taste and demands.  The freshness of the vegetables that goes",
+      "page": 2,
+      "bbox": [
+        58.259979248046875,
+        386.50897216796875,
+        428.7934875488281,
+        399.26788330078125
+      ]
+    },
+    {
+      "text": "into their food is an important deciding factor.  I like to hear the crunch of the lettuce when biting",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        408.8419189453125,
+        439.1832275390625,
+        421.6008605957031
+      ]
+    },
+    {
+      "text": "into a burger and McDonald’s doesn’t provide that satisfaction with any of their many boring",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        431.1749267578125,
+        423.11322021484375,
+        443.9338684082031
+      ]
+    },
+    {
+      "text": "burgers.  A really big difference between these two places is how they prepare their fries.",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        453.5079345703125,
+        409.567626953125,
+        466.266845703125
+      ]
+    },
+    {
+      "text": "McDonald’s is a gamble; sometimes their fries are crispy and decent, but more of the time they",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        475.8409423828125,
+        430.3470458984375,
+        488.599853515625
+      ]
+    },
+    {
+      "text": "are too flimsy and heavily salted.  Fries at Burger King are cut and seasoned with perfection you",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        498.1739501953125,
+        435.44488525390625,
+        510.932861328125
+      ]
+    },
+    {
+      "text": "won’t need a dipping sauce while shoveling them into your mouth.  McDonald’s and Burger",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        520.5069580078125,
+        419.56915283203125,
+        533.265869140625
+      ]
+    },
+    {
+      "text": "King both have a large lunch menu, but Burger King’s superior method of broiling and using",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        542.8399658203125,
+        422.0937194824219,
+        555.598876953125
+      ]
+    },
+    {
+      "text": "fresher ingredients to cook their products, makes Burger King hands down the better option for",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        565.1729736328125,
+        430.34716796875,
+        577.931884765625
+      ]
+    },
+    {
+      "text": "lunch and dinner.",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        587.5059814453125,
+        133.22120666503906,
+        600.264892578125
+      ]
+    },
+    {
+      "text": "Unhealthy, fast and cheap.  The world wouldn’t be the same without McDonald’s or",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        617.94677734375,
+        417.48138427734375,
+        630.7056884765625
+      ]
+    },
+    {
+      "text": "Burger King.  Higher life expectancy, less obesity, and all around happier people would be seen",
+      "page": 2,
+      "bbox": [
+        58.2599983215332,
+        640.2312622070312,
+        433.30877685546875,
+        652.9901733398438
+      ]
+    },
+    {
+      "text": "Sample Student A  3",
+      "page": 3,
+      "bbox": [
+        58.263763427734375,
+        104.38446807861328,
+        438.9599914550781,
+        126.55154418945312
+      ]
+    },
+    {
+      "text": "a lot more often if we could just give up the devilish temptation that these eateries create within",
+      "page": 3,
+      "bbox": [
+        58.2599983215332,
+        132.78660583496094,
+        431.9981384277344,
+        145.54554748535156
+      ]
+    },
+    {
+      "text": "society.  But, just like the smoker who lights up a cigarette until their last breath, fast food has",
+      "page": 3,
+      "bbox": [
+        58.2599983215332,
+        155.11961364746094,
+        426.02606201171875,
+        167.87855529785156
+      ]
+    },
+    {
+      "text": "gotten us hooked by putting the right amount of chemicals in the food to keep us coming back",
+      "page": 3,
+      "bbox": [
+        58.2599983215332,
+        177.45274353027344,
+        426.12335205078125,
+        190.21168518066406
+      ]
+    },
+    {
+      "text": "for more.  The heavenly taste of a McDonald’s breakfast and the over powering flavor of Burger",
+      "page": 3,
+      "bbox": [
+        58.2599983215332,
+        199.78562927246094,
+        435.7847900390625,
+        212.54457092285156
+      ]
+    },
+    {
+      "text": "King’s flame broiled goodness is the work of modern science at its finest.",
+      "page": 3,
+      "bbox": [
+        58.2599983215332,
+        222.11863708496094,
+        351.64764404296875,
+        234.87757873535156
+      ]
+    },
+    {
+      "text": "Comment [w9]: An intriguing idea.  Something like this could eventually be developed into its own essay.  That’s one of the goals of an English M02 class: students learn the basics of essay development and critical thinking. \nIn an English 1A course, the essays are usually longer, more academic in tone, and incorporate outside sources to add authority to one’s argument.",
+      "page": 3,
+      "bbox": [
+        466.0799865722656,
+        202.05557250976562,
+        605.9068603515625,
+        274.078369140625
+      ]
+    }
+  ],
+  "references": [],
+  "original_annotations": [
+    {
+      "id": "o1",
+      "source": "original",
+      "source_page": 2,
+      "anchor_text": "",
+      "comment_en": "Good sense of humor.  This",
+      "comment_zh": "",
+      "anchor_confidence": 0.3,
+      "annot_type": "InlineComment",
+      "rect": null
+    },
+    {
+      "id": "o2",
+      "source": "original",
+      "source_page": 2,
+      "anchor_text": "",
+      "comment_en": "Constantly referring to the",
+      "comment_zh": "",
+      "anchor_confidence": 0.3,
+      "annot_type": "InlineComment",
+      "rect": null
+    },
+    {
+      "id": "o3",
+      "source": "original",
+      "source_page": 2,
+      "anchor_text": "",
+      "comment_en": "Effective details about the",
+      "comment_zh": "",
+      "anchor_confidence": 0.3,
+      "annot_type": "InlineComment",
+      "rect": null
+    },
+    {
+      "id": "o4",
+      "source": "original",
+      "source_page": 2,
+      "anchor_text": "",
+      "comment_en": "Find a way to state this idea",
+      "comment_zh": "",
+      "anchor_confidence": 0.3,
+      "annot_type": "InlineComment",
+      "rect": null
+    },
+    {
+      "id": "o5",
+      "source": "original",
+      "source_page": 2,
+      "anchor_text": "",
+      "comment_en": "Avoid fragments in academic",
+      "comment_zh": "",
+      "anchor_confidence": 0.3,
+      "annot_type": "InlineComment",
+      "rect": null
+    }
+  ],
+  "annotation_mode": "A",
+  "source_file": "E:\\留学辅导小红书运营\\素材\\原始资料\\essay样例\\测试1.pdf",
+  "source_type": "pdf",
+  "page_count": 3
+}

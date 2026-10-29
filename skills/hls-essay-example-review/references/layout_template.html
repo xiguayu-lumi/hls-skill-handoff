@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay范例精读 - Layout Template</title>
+<!--
+  HLS Essay范例精读 - A4 双栏布局模板
+  用途：浏览器预览 + 布局参考。最终 PDF 由 build_review_pdf.py 用 PyMuPDF 生成。
+  设计 token 取自 SKILL.md 第 20 节。
+-->
+<style>
+  /* ===== Design Tokens (SKILL.md §20) ===== */
+  :root {
+    --page-bg: #ffffff;
+    --text-main: #1d1f22;
+    --text-translation: #666b72;
+    --annotation-text: #25282d;
+    --annotation-cn: #555b63;
+    --rule: #25282d;
+    --translation-rule: #c5cad0;
+    --annotation-underline: #55C0F4;
+    --annotation-column-bg: #EEF4FF;
+    --disclosure-text: #aab0b6;
+
+    --font-en: "Arial", "Helvetica", sans-serif;
+    --font-zh: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  }
+
+  /* ===== A4 Page ===== */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #e8e8e8;
+    font-family: var(--font-en);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    background: var(--page-bg);
+    margin: 12px auto;
+    padding: 13mm 15mm 13mm 15mm;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ===== Page Header (SKILL.md §4.2) ===== */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 10pt;
+    font-family: var(--font-en);
+    color: var(--text-main);
+    padding-bottom: 3mm;
+    border-bottom: 0.5pt solid var(--rule);
+    margin-bottom: 6mm;
+    flex-shrink: 0;
+  }
+
+  .page-header .label {
+    font-weight: 600;
+  }
+
+  .page-header .title {
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 8mm;
+    font-weight: 400;
+    color: var(--text-main);
+  }
+
+  .page-header .page-num {
+    font-weight: 400;
+    color: var(--text-main);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ===== Two-Column Layout (SKILL.md §4.3) ===== */
+  .page-body {
+    flex: 1;
+    display: flex;
+    gap: 7.5mm;
+    overflow: hidden;
+  }
+
+  .essay-column {
+    flex: 0 0 68%;
+    /* width: 122mm; */
+    overflow: hidden;
+  }
+
+  .annotation-column {
+    flex: 0 0 28%;
+    /* width: 50mm; */
+    background: var(--annotation-column-bg);
+    padding: 0 5mm;
+    overflow: hidden;
+  }
+
+  /* ===== Essay Content (SKILL.md §5) ===== */
+  .paragraph-unit {
+    margin-bottom: 0;
+  }
+
+  .essay-en {
+    font-family: var(--font-en);
+    font-size: 10.5pt;
+    line-height: 1.52;
+    color: var(--text-main);
+    margin: 0 0 3mm 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+
+  .translation-zh {
+    font-family: var(--font-zh);
+    font-size: 9.3pt;
+    line-height: 1.62;
+    color: var(--text-translation);
+    margin: 1.5mm 0 5mm 0;
+    padding-left: 3.5mm;
+    border-left: 0.8pt solid var(--translation-rule);
+  }
+
+  /* ===== Assignment Question (SKILL.md §5.3) ===== */
+  .essay-question {
+    font-size: 10.2pt;
+    font-weight: 500;
+    margin-bottom: 6mm;
+    color: var(--text-main);
+    line-height: 1.5;
+    padding-left: 3.5mm;
+    border-left: 1.5pt solid var(--annotation-underline);
+  }
+
+  /* ===== References / Footnotes (SKILL.md §5.4) ===== */
+  .references {
+    font-size: 8.5pt;
+    line-height: 1.35;
+    color: var(--text-main);
+    margin-top: 6mm;
+    border-top: 0.3pt solid var(--translation-rule);
+    padding-top: 3mm;
+  }
+
+  .references h3 {
+    font-size: 9pt;
+    font-weight: 600;
+    margin: 0 0 2mm 0;
+  }
+
+  .footnote {
+    font-size: 7.8pt;
+    line-height: 1.3;
+    color: var(--text-main);
+  }
+
+  /* ===== Annotated Text (SKILL.md §6) ===== */
+  .annotated-text {
+    text-decoration: underline;
+    text-decoration-color: var(--annotation-underline);
+    text-decoration-thickness: 0.7pt;
+    text-underline-offset: 2px;
+    text-decoration-skip-ink: none;
+  }
+
+  .annotation-ref {
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--annotation-underline);
+    vertical-align: super;
+    margin-left: 1px;
+    line-height: 0;
+  }
+
+  /* ===== Right Column Annotations (SKILL.md §7) ===== */
+  .annotation {
+    margin-bottom: 5mm;
+  }
+
+  .annotation-number {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--annotation-text);
+    margin-bottom: 1mm;
+    font-family: var(--font-en);
+  }
+
+  .annotation-en {
+    font-size: 8.5pt;
+    line-height: 1.42;
+    color: var(--annotation-text);
+    margin: 0 0 1.5mm 0;
+    font-family: var(--font-en);
+    text-align: left;
+  }
+
+  .annotation-zh {
+    font-size: 8.2pt;
+    line-height: 1.45;
+    color: var(--annotation-cn);
+    margin: 0;
+    font-family: var(--font-zh);
+  }
+
+  /* ===== Disclosure Footer (SKILL.md §7.2) ===== */
+  .disclosure {
+    position: absolute;
+    bottom: 4mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 6.8pt;
+    color: var(--disclosure-text);
+    font-family: var(--font-zh);
+  }
+
+  /* ===== Metadata Block (SKILL.md §3.1) ===== */
+  .essay-meta {
+    font-size: 9.5pt;
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 5mm;
+  }
+
+  .essay-meta .meta-line {
+    margin: 0;
+  }
+
+  .essay-meta .meta-label {
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  /* ===== Print-specific adjustments ===== */
+  @media print {
+    body {
+      background: white;
+    }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Page 1 Example ===== -->
+<div class="page">
+  <!-- Page Header -->
+  <header class="page-header">
+    <span class="label">Essay范例精读</span>
+    <span class="title">The Clown Vs. the Crown</span>
+    <span class="page-num">01 / 08</span>
+  </header>
+
+  <!-- Two-Column Body -->
+  <div class="page-body">
+    <!-- Left: Essay Column -->
+    <main class="essay-column">
+      <!-- Metadata -->
+      <div class="essay-meta">
+        <p class="meta-line"><span class="meta-label">Student:</span>Sample Student A</p>
+        <p class="meta-line"><span class="meta-label">Course:</span>English M02</p>
+        <p class="meta-line"><span class="meta-label">Date:</span>3 April 2013</p>
+      </div>
+
+      <!-- Assignment Question (if present) -->
+      <div class="essay-question">
+        Compare and contrast two fast-food restaurants in terms of their target audience and marketing strategies.
+      </div>
+
+      <!-- Paragraph 1: English + Chinese -->
+      <div class="paragraph-unit">
+        <p class="essay-en">
+          When it comes to fast food, there are two names that come to mind almost immediately:
+          <span class="annotated-text" data-annotation="1">McDonald's and Burger King have been competing for the same customers for decades, each with distinct approaches to the same market.</span><sup class="annotation-ref">[1]</sup>
+          Both restaurants offer similar menus, but their marketing strategies and target audiences differ significantly.
+        </p>
+        <div class="translation-zh">
+          说到快餐，几乎立刻想到两个名字：麦当劳和汉堡王数十年来一直在争夺同样的顾客，各自以截然不同的方式进入同一个市场。两家餐厅提供类似的菜单，但它们的营销策略和目标受众有显著差异。
+        </div>
+      </div>
+
+      <!-- Paragraph 2 -->
+      <div class="paragraph-unit">
+        <p class="essay-en">
+          <span class="annotated-text" data-annotation="2">McDonald's might dominate with its cheap yet satisfying breakfast, but Burger King rules over the lunch crowd.</span><sup class="annotation-ref">[2]</sup>
+          This fundamental difference in peak hours reflects each restaurant's broader strategy.
+        </p>
+        <div class="translation-zh">
+          麦当劳可能在便宜又令人满意的早餐上占据优势，但汉堡王统治着午餐时段。这种高峰时段的根本差异反映了每家餐厅更广泛的策略。
+        </div>
+      </div>
+    </main>
+
+    <!-- Right: Annotation Column -->
+    <aside class="annotation-column">
+      <div class="annotation" data-anchor="1">
+        <div class="annotation-number">[1]</div>
+        <div class="annotation-en">The opening effectively establishes the comparison. Consider tightening "have been competing" to a more active verb.</div>
+        <div class="annotation-zh">开头有效地建立了对比关系。考虑将"have been competing"收紧为更具主动性的动词。</div>
+      </div>
+
+      <div class="annotation" data-anchor="2">
+        <div class="annotation-number">[2]</div>
+        <div class="annotation-en">This is a good compare/contrast thesis statement. It signals the essay's direction clearly.</div>
+        <div class="annotation-zh">这是一个很好的比较 / 对比型 thesis statement。它清晰地标示了文章方向。</div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Disclosure Footer -->
+  <div class="disclosure">右栏含原始评语与补充写作解析。</div>
+</div>
+
+<!-- ===== Page 2 Example (continuation) ===== -->
+<div class="page">
+  <header class="page-header">
+    <span class="label">Essay范例精读</span>
+    <span class="title">The Clown Vs. the Crown</span>
+    <span class="page-num">02 / 08</span>
+  </header>
+
+  <div class="page-body">
+    <main class="essay-column">
+      <div class="paragraph-unit">
+        <p class="essay-en">
+          McDonald's targets families with children through its Happy Meal toys and play areas.
+          <span class="annotated-text" data-annotation="3">The company's mascot, Ronald McDonald, was specifically designed to appeal to young children and create brand loyalty from an early age.</span><sup class="annotation-ref">[3]</sup>
+        </p>
+        <div class="translation-zh">
+          麦当劳通过开心乐园餐玩具和游乐区来瞄准有孩子的家庭。公司的吉祥物麦当劳叔叔专门设计来吸引幼儿，并从早期就培养品牌忠诚度。
+        </div>
+      </div>
+    </main>
+
+    <aside class="annotation-column">
+      <div class="annotation" data-anchor="3">
+        <div class="annotation-number">[3]</div>
+        <div class="annotation-en">The specific example of Ronald McDonald makes the claim about targeting children more concrete and convincing.</div>
+        <div class="annotation-zh">麦当劳叔叔的具体例子使"瞄准儿童"这一论点更加具体和有说服力。</div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="disclosure">右栏含原始评语与补充写作解析。</div>
+</div>
+
+</body>
+</html>

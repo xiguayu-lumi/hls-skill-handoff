@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{COURSE_CODE}} 课程解析</title>
+  <style>
+    :root { --blue:#283e7c; --blue-dark:#1d2e5f; --blue-soft:#f0f2f7; --ink:#141414; --muted:#67636a; --line:#d8d5da; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; background:#e8e8e8; color:var(--ink); font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif; }
+    body { display:flex; flex-direction:column; align-items:center; gap:32px; padding:32px; }
+    .page { position:relative; width:1242px; height:1660px; overflow:hidden; padding:42px 48px 32px; background:#fff; }
+    .watermark { position:absolute; z-index:0; left:50%; top:50%; width:760px; opacity:.08; transform:translate(-50%,-50%) rotate(-3deg); pointer-events:none; }
+    .watermark img { width:100%; display:block; }
+    .header { position:relative; z-index:2; height:76px; display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid var(--line); }
+    .brand { min-height:58px; display:flex; align-items:center; }
+    .hls-header-logo { width:118px; height:58px; object-fit:contain; object-position:left center; }
+    .school-lockup { display:flex; align-items:center; justify-content:flex-end; gap:14px; color:var(--muted); font-size:25px; line-height:1.2; text-align:right; }
+    .school-logo { width:48px; height:58px; object-fit:contain; }
+    .main { position:relative; z-index:1; }
+    .kicker { margin-top:28px; color:rgba(40,62,124,.48); font-size:38px; font-weight:800; }
+    .rule { width:76px; height:4px; margin:10px 0 12px; background:var(--blue); }
+    h1 { margin:0; color:var(--blue); font-size:50px; line-height:1.16; letter-spacing:-.02em; }
+    h2 { margin:0 0 10px; color:var(--blue); font-size:30px; line-height:1.25; }
+    p { margin:0; font-size:27px; line-height:1.48; }
+    .lead { margin-top:8px; color:var(--muted); }
+    .evidence { height:148px; margin-top:18px; overflow:hidden; border:1px solid var(--line); background:#fafafa; }
+    .evidence img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .caption { margin-top:8px; color:var(--muted); font-size:20px; }
+    .claim { margin-top:20px; font-size:29px; line-height:1.45; }
+    .claim strong { color:var(--blue); }
+    .section-title { margin:22px 0 12px; color:var(--blue); font-size:29px; font-weight:800; }
+    .three-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .three-grid article { min-height:260px; padding:18px; border-top:5px solid var(--blue); background:rgba(255,255,255,.8); }
+    .three-grid small { color:rgba(40,62,124,.55); font-size:23px; font-weight:800; }
+    .three-grid p { font-size:23px; }
+    .fact-row { display:grid; grid-template-columns:repeat(3,1fr); margin-top:18px; border-top:2px solid var(--blue); border-bottom:2px solid var(--blue); }
+    .fact-row div { padding:16px 18px; font-size:23px; line-height:1.35; }
+    .fact-row div+div { border-left:1px solid var(--line); }
+    .fact-row strong { display:block; color:var(--blue); font-size:27px; }
+    .callout { margin-top:20px; padding:20px 26px; border:2px solid var(--blue); border-radius:17px; background:rgba(40,62,124,.04); font-size:26px; line-height:1.45; }
+    .callout strong { color:var(--blue); }
+    .weight-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px; }
+    .weight-card { height:240px; padding:24px 28px; border:2px solid var(--blue); border-radius:18px; }
+    .weight { color:var(--blue); font:900 84px/.9 Arial,sans-serif; }
+    .weight-card h2 { margin-top:18px; color:#111; }
+    .weight-card p { color:var(--muted); font-size:23px; }
+    .timeline { display:flex; align-items:center; margin:20px 0; }
+    .timeline span { display:grid; place-items:center; width:62px; height:62px; border-radius:50%; background:var(--blue); color:#fff; font-weight:800; }
+    .timeline i { flex:1; height:2px; background:rgba(40,62,124,.35); }
+    .flow { display:flex; align-items:stretch; margin-top:18px; }
+    .flow b { flex:1; min-height:90px; display:grid; place-items:center; padding:10px; border-top:3px solid var(--blue); border-bottom:1px solid var(--line); text-align:center; font-size:22px; }
+    .flow em { width:38px; display:grid; place-items:center; color:var(--blue); font-size:28px; font-style:normal; }
+    .notes { display:grid; grid-template-columns:.8fr 1.2fr; gap:22px; margin-top:20px; padding:20px 22px; border:2px solid var(--blue); border-radius:18px; }
+    .notes div+div { padding-left:22px; border-left:1px solid var(--line); }
+    .notes p { font-size:23px; }
+    .pain-stack { margin-top:20px; border-top:2px solid var(--blue); }
+    .pain { display:grid; grid-template-columns:90px 1fr 1.05fr; gap:18px; min-height:205px; padding:20px 10px 20px 0; border-bottom:1px solid var(--line); }
+    .pain .num { color:rgba(40,62,124,.5); font:900 46px/1 Arial,sans-serif; }
+    .pain p { font-size:23px; }
+    .pain .action { padding-left:20px; border-left:1px solid var(--line); }
+    .footer { position:absolute; z-index:2; left:48px; right:48px; bottom:32px; display:flex; justify-content:space-between; padding-top:12px; border-top:1px solid var(--line); color:var(--muted); font-size:20px; }
+    .cover { padding:42px 48px 0; }
+    .cover-copy { position:relative; z-index:2; margin-top:36px; }
+    .cover-dept { color:var(--blue); font-size:30px; font-weight:700; }
+    .cover-code { margin-top:24px; color:#08080a; font:900 132px/.96 Arial,sans-serif; letter-spacing:-.055em; }
+    .cover-name { margin-top:18px; color:var(--blue); font-size:48px; font-weight:800; line-height:1.08; }
+    .cover-school-name { margin-top:28px; color:var(--blue); font-size:58px; font-weight:900; line-height:1; }
+    .cover-title { margin-top:22px; font-size:72px; font-weight:900; line-height:1; }
+    .cover-sub { margin-top:16px; color:var(--muted); font-size:28px; }
+    .campus { position:absolute; z-index:0; left:0; right:0; top:690px; height:578px; overflow:hidden; background:var(--blue-soft); }
+    .campus img { width:100%; height:100%; object-fit:cover; }
+    .cover-nav { position:absolute; z-index:2; left:64px; right:64px; bottom:68px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .cover-nav div { height:190px; padding:24px; border-radius:16px; background:rgba(240,242,247,.97); font-size:27px; font-weight:800; }
+    .cover-nav b { display:block; margin-bottom:24px; color:var(--blue); font:800 52px/1 Arial,sans-serif; }
+    .cover-bar { position:absolute; left:0; right:0; bottom:0; height:24px; background:var(--blue); }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="watermark"><img src="assets/hls-watermark.png" alt=""></div>
+    <div class="header"><div class="brand"><img class="hls-header-logo" src="assets/hls-logo-header.png" alt="海乐思 HLS"></div><div class="school-lockup"><img class="school-logo" src="assets/school-logo.png" alt="{{SCHOOL_NAME_EN}} logo"><div>{{SCHOOL_NAME_EN_UPPER}}<br>{{TERM}}</div></div></div>
+    <div class="cover-copy"><div class="cover-dept">{{DEPARTMENT}}</div><div class="cover-code">{{COURSE_CODE}}</div><div class="cover-name">{{COURSE_NAME_EN}}</div><div class="cover-school-name">{{SCHOOL_DISPLAY_NAME}}</div><div class="cover-title">课程解析</div><div class="cover-sub">{{COURSE_POSITIONING_ZH}}</div></div>
+    <div class="campus"><img src="assets/campus-hero.png" alt="{{SCHOOL_NAME_ZH}} campus"></div>
+    <div class="cover-nav"><div><b>01</b>课程简介</div><div><b>02</b>考试结构</div><div><b>03</b>核心考核</div><div><b>04</b>难点与准备</div></div><div class="cover-bar"></div>
+  </section>
+
+  <section class="page">
+    <div class="watermark"><img src="assets/hls-watermark.png" alt=""></div><div class="header"><div class="brand"><img class="hls-header-logo" src="assets/hls-logo-header.png" alt="海乐思 HLS"></div><div class="school-lockup"><img class="school-logo" src="assets/school-logo.png" alt="{{SCHOOL_NAME_EN}} logo"><div>{{SCHOOL_NAME_EN_UPPER}}<br>{{COURSE_CODE}} · COURSE OVERVIEW</div></div></div>
+    <main class="main"><div class="kicker">01/04</div><div class="rule"></div><h1>{{PAGE2_TITLE}}</h1><p class="lead">{{PAGE2_LEAD}}</p><div class="evidence"><img src="assets/source-overview.png" alt="official course overview"></div><div class="caption">官方信息｜{{OVERVIEW_EVIDENCE_CAPTION}}</div><p class="claim"><strong>HLS 解读：</strong>{{PAGE2_INTERPRETATION}}</p><div class="section-title">{{KNOWLEDGE_MAP_TITLE}}</div><div class="three-grid"><article><small>{{STAGE1_RANGE}}</small><h2>{{STAGE1_NAME}}</h2><p>{{STAGE1_TOPICS}}</p></article><article><small>{{STAGE2_RANGE}}</small><h2>{{STAGE2_NAME}}</h2><p>{{STAGE2_TOPICS}}</p></article><article><small>{{STAGE3_RANGE}}</small><h2>{{STAGE3_NAME}}</h2><p>{{STAGE3_TOPICS}}</p></article></div><div class="fact-row"><div><strong>{{USE1_NAME}}</strong>{{USE1_TEXT}}</div><div><strong>{{USE2_NAME}}</strong>{{USE2_TEXT}}</div><div><strong>{{USE3_NAME}}</strong>{{USE3_TEXT}}</div></div><div class="callout"><strong>课前基础：</strong>{{PREREQUISITE_ADVICE}}</div></main><div class="footer"><span>事实依据：{{PAGE2_SOURCE}}</span><span>02 / 05</span></div>
+  </section>
+
+  <section class="page">
+    <div class="watermark"><img src="assets/hls-watermark.png" alt=""></div><div class="header"><div class="brand"><img class="hls-header-logo" src="assets/hls-logo-header.png" alt="海乐思 HLS"></div><div class="school-lockup"><img class="school-logo" src="assets/school-logo.png" alt="{{SCHOOL_NAME_EN}} logo"><div>{{SCHOOL_NAME_EN_UPPER}}<br>{{COURSE_CODE}} · ASSESSMENT</div></div></div>
+    <main class="main"><div class="kicker">02/04</div><div class="rule"></div><h1>{{PAGE3_TITLE}}</h1><p class="lead">{{PAGE3_LEAD}}</p><div class="weight-grid"><div class="weight-card"><div class="weight">{{WEIGHT1}}</div><h2>{{ASSESSMENT1}}</h2><p>{{ASSESSMENT1_SUMMARY}}</p></div><div class="weight-card"><div class="weight">{{WEIGHT2}}</div><h2>{{ASSESSMENT2}}</h2><p>{{ASSESSMENT2_SUMMARY}}</p></div></div><div class="evidence"><img src="assets/source-assessment.png" alt="official assessment summary"></div><div class="caption">官方信息｜{{ASSESSMENT_EVIDENCE_CAPTION}}</div><div class="section-title">{{ASSESSMENT_CHECK_TITLE}}</div><div class="fact-row"><div><strong>{{CHECK1}}</strong>{{CHECK1_TEXT}}</div><div><strong>{{CHECK2}}</strong>{{CHECK2_TEXT}}</div><div><strong>{{CHECK3}}</strong>{{CHECK3_TEXT}}</div></div><div class="timeline"><span>1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span><i></i><span>5</span></div><p class="claim"><strong>学习建议：</strong>{{ASSESSMENT_ADVICE}}</p><div class="callout"><strong>{{RISK_LABEL}}：</strong>{{RISK_TEXT}}</div></main><div class="footer"><span>事实依据：{{PAGE3_SOURCE}}</span><span>03 / 05</span></div>
+  </section>
+
+  <section class="page">
+    <div class="watermark"><img src="assets/hls-watermark.png" alt=""></div><div class="header"><div class="brand"><img class="hls-header-logo" src="assets/hls-logo-header.png" alt="海乐思 HLS"></div><div class="school-lockup"><img class="school-logo" src="assets/school-logo.png" alt="{{SCHOOL_NAME_EN}} logo"><div>{{SCHOOL_NAME_EN_UPPER}}<br>{{COURSE_CODE}} · CORE ASSESSMENT</div></div></div>
+    <main class="main"><div class="kicker">03/04</div><div class="rule"></div><h1>{{PAGE4_TITLE}}</h1><p class="lead">{{PAGE4_LEAD}}</p><div class="evidence"><img src="assets/source-core-assessment.png" alt="official core assessment details"></div><div class="caption">官方信息｜{{CORE_EVIDENCE_CAPTION}}</div><div class="fact-row"><div><strong>{{CORE_FACT1}}</strong>{{CORE_FACT1_TEXT}}</div><div><strong>{{CORE_FACT2}}</strong>{{CORE_FACT2_TEXT}}</div><div><strong>{{CORE_FACT3}}</strong>{{CORE_FACT3_TEXT}}</div></div><p class="claim">{{CORE_RULE_SUMMARY}}</p><div class="section-title">{{DECISION_MAP_TITLE}}</div><div class="flow"><b>{{FLOW1}}</b><em>→</em><b>{{FLOW2}}</b><em>→</em><b>{{FLOW3}}</b><em>→</em><b>{{FLOW4}}</b><em>→</em><b>{{FLOW5}}</b><em>→</em><b>{{FLOW6}}</b></div><div class="three-grid"><article><h2>{{METHOD1}}</h2><p>{{METHOD1_TEXT}}</p></article><article><h2>{{METHOD2}}</h2><p>{{METHOD2_TEXT}}</p></article><article><h2>{{METHOD3}}</h2><p>{{METHOD3_TEXT}}</p></article></div><div class="notes"><div><h2>{{NOTES_DONT_TITLE}}</h2><p>{{NOTES_DONT_TEXT}}</p></div><div><h2>{{NOTES_DO_TITLE}}</h2><p>{{NOTES_DO_TEXT}}</p></div></div><div class="callout"><strong>HLS 解读：</strong>{{PAGE4_INTERPRETATION}}</div></main><div class="footer"><span>事实依据：{{PAGE4_SOURCE}}</span><span>04 / 05</span></div>
+  </section>
+
+  <section class="page">
+    <div class="watermark"><img src="assets/hls-watermark.png" alt=""></div><div class="header"><div class="brand"><img class="hls-header-logo" src="assets/hls-logo-header.png" alt="海乐思 HLS"></div><div class="school-lockup"><img class="school-logo" src="assets/school-logo.png" alt="{{SCHOOL_NAME_EN}} logo"><div>{{SCHOOL_NAME_EN_UPPER}}<br>{{COURSE_CODE}} · STUDY GUIDE</div></div></div>
+    <main class="main"><div class="kicker">04/04</div><div class="rule"></div><h1>{{PAGE5_TITLE}}</h1><p class="lead">{{PAGE5_LEAD}}</p><div class="pain-stack"><article class="pain"><div class="num">01</div><div><h2>{{PAIN1}}</h2><p>{{PAIN1_REASON}}</p></div><div class="action"><h2>行动</h2><p>{{PAIN1_ACTION}}</p></div></article><article class="pain"><div class="num">02</div><div><h2>{{PAIN2}}</h2><p>{{PAIN2_REASON}}</p></div><div class="action"><h2>行动</h2><p>{{PAIN2_ACTION}}</p></div></article><article class="pain"><div class="num">03</div><div><h2>{{PAIN3}}</h2><p>{{PAIN3_REASON}}</p></div><div class="action"><h2>行动</h2><p>{{PAIN3_ACTION}}</p></div></article></div><div class="section-title">四个动作要具体做到什么程度？</div><div class="fact-row"><div><strong>{{ACTION1}}</strong>{{ACTION1_TEXT}}</div><div><strong>{{ACTION2}}</strong>{{ACTION2_TEXT}}</div><div><strong>{{ACTION3}}</strong>{{ACTION3_TEXT}}</div></div><div class="callout"><strong>{{COURSE_CODE}} 学习支持重点</strong><br>{{SUPPORT_TEXT}}</div><p class="claim"><strong>最后判断：</strong>{{FINAL_JUDGEMENT}}</p></main><div class="footer"><span>学习建议为编辑解读；课程规则以最新官方页面为准</span><span>05 / 05</span></div>
+  </section>
+</body>
+</html>

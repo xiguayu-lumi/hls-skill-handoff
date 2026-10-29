@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "scope": "hls-handdraw-video后续新片的默认；用户本条明确要求或已有同片配置优先",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "body_font": {
+    "path": "C:/Windows/Fonts/msyhbd.ttc",
+    "index": 0,
+    "family": "Microsoft YaHei",
+    "style": "Bold",
+    "preserve_stroke_animation": true
+  },
+  "captions": {
+    "font_asset": "assets/fonts/思源宋体-Medium.ttf",
+    "font_sha256": "89ec9f54c02b34998447fd5fc859bb2cc84e5e7671aec9aca1ccd9f608034c9f",
+    "font_size": 64,
+    "color": "#000000",
+    "stroke_width": 0,
+    "stroke_color": null,
+    "embolden_px": 2,
+    "shadow": null,
+    "background": null,
+    "bottom_margin": 105,
+    "max_width_ratio": 0.85,
+    "max_lines": 2,
+    "preserve_words": true,
+    "balance_lines": true
+  },
+  "voice_profile": "assets/voices/hls-essay-male-20261014/profile.json",
+  "bgm_default": false,
+  "cover_skill": "xhs-white-colorblock-cover"
+}

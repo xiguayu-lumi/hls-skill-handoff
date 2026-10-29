@@ -1,0 +1,40 @@
+{
+  "engine": "VoxCPM2",
+  "mode": "voice_design",
+  "style": "custom",
+  "description": "年轻成年男声，温和清晰，正常偏慢的中文讲解语速，英语术语发音自然，句间停顿清楚，不使用播音腔",
+  "selection_reason": "Explicit voice description supplied by the caller",
+  "model_path": "E:\\sweety-handdraw-runtime\\models\\VoxCPM2",
+  "device": "cuda",
+  "seed": 2027,
+  "timesteps": 10,
+  "cfg": 2.0,
+  "max_len": 10000,
+  "voxcpm_version": "2.0.3",
+  "model_config_sha256": "405f0dcd92f7feba6011ed4eac5c8d4f74cba9712f07fd5cfa3063bbdd95402c",
+  "weights_identity": {
+    "model.safetensors": {
+      "bytes": 4580080592,
+      "mtime_ns": 1791954732104733500
+    },
+    "audiovae.pth": {
+      "bytes": 376951122,
+      "mtime_ns": 1791954407567614600
+    }
+  },
+  "signature": "e70efa383bf7ec50cfcbb9c48594d04381d74ab0af17b39668d79386e002490c",
+  "audio_sha256": "e51c31614ed92155bf717768066b2c5d2fea7da044b7d4f1cfe4b4bf2f936fcf",
+  "sample_rate": 48000,
+  "samples": 4669440,
+  "duration": 97.28,
+  "peak_before_gain": 0.42632973194122314,
+  "gain": 1.0,
+  "rms_before_gain": 0.0329633429646492,
+  "generation_seconds": 330.688,
+  "method": "single_call_complete_script",
+  "text_verified": false,
+  "listening_status": "not_reviewed",
+  "alignment_status": "pending",
+  "original_text_sha256": "0f73bc28c2c64ec2741363094fd297751d369d6cd5beb22d0953839a671377a6",
+  "original_full_record": "E:/留学辅导小红书运营/内容项目/2026-10-14_Essay第一段手绘/02_脚本与配音/旁白_v2.voice.json"
+}

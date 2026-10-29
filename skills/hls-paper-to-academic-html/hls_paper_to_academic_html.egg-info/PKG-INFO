@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: hls-paper-to-academic-html
+Version: 0.1.0
+Summary: Evidence-first academic PDF to HLS-branded offline HTML tooling
+Requires-Python: >=3.11
+Requires-Dist: Jinja2<4,>=3.1
+Requires-Dist: jsonschema<5,>=4.23
+Requires-Dist: Pillow<13,>=11
+Requires-Dist: pydantic<3,>=2.10
+Requires-Dist: PyMuPDF<2,>=1.25
+Provides-Extra: test
+Requires-Dist: pytest<10,>=8; extra == "test"

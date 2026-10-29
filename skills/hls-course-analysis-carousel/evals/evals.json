@@ -1,0 +1,40 @@
+{
+  "skill_name": "hls-course-analysis-carousel",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "根据 UQ 官方 ECON1050 Course Profile 制作 5 张海乐思小红书课程解析图，封面显示 UQ昆士兰大学，主色统一为蓝色，页眉左侧放完整海乐思 Logo，右侧保留 UQ 原色校徽。",
+      "expected_output": "五张 1242×1660 PNG、来源截图、内容方案、carousel.json 与验证结果；事实来自官网并区分 HLS 解读。",
+      "files": [],
+      "expectations": [
+        "Exactly five numbered PNG files are produced at 1242×1660.",
+        "The cover contains UQ昆士兰大学 and all five headers contain both brand lockups.",
+        "The layout primary color is #283E7C while the school crest remains an image asset.",
+        "No placeholder text or forbidden score-guarantee claims remain.",
+        "A machine-readable layout report shows zero overflowing pages."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "我给你一所大学某门课的官网链接，照 ECON1050 那套做完整课程解析轮播；这门课没有期末考试，最大的考核是 research report。",
+      "expected_output": "仍为五页，但第 4 页改为 research report 的任务拆解与决策路径，不虚构 Final。",
+      "files": [],
+      "expectations": [
+        "Page four adapts to the real core assessment rather than inventing a final exam.",
+        "Official facts, editorial interpretation and study advice are visibly separated.",
+        "The fixed HLS visual and delivery contracts remain intact."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "为一门新课程建立课程解析项目骨架，但不要覆盖任何已有目录。",
+      "expected_output": "创建规则、源素材、制作工程、审核和版本化最终交付目录，并复制品牌资产、HTML 模板、渲染与验证脚本。",
+      "files": [],
+      "expectations": [
+        "The scaffold refuses to overwrite an existing target.",
+        "The project rules are created before business editing begins.",
+        "All required directories, HLS assets and deterministic scripts are present."
+      ]
+    }
+  ]
+}

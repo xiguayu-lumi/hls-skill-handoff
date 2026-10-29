@@ -1,0 +1,70 @@
+{
+  "verified": "2026-09-11",
+  "assets": [
+    {
+      "file": "media/monash-reverse.svg",
+      "page": "https://explorer.monash.edu/campus",
+      "source": "https://explorer.monash.edu/images/logos/header-white.svg",
+      "bytes": 45948,
+      "sha256": "b808b29ab2178b90b0140d01e2e4ce5807cd203964f316c1c76a593c0b33f5fe",
+      "note": "官方反白SVG，原样保留"
+    },
+    {
+      "file": "media/monash-mono.svg",
+      "page": "https://lens.monash.edu/",
+      "source": "https://storage.ghost.io/c/50/0c/500c32dd-8661-43a5-bab9-407a958ba474/content/images/2025/12/MonashUniversity-1.svg",
+      "bytes": 31937,
+      "sha256": "c9c756024366eb21f4ab5622ec27ea9952112f48aa105877d88f5c7a568574ae",
+      "note": "官方单色SVG，原样保留"
+    },
+    {
+      "file": "media/classroom-discussion.jpg",
+      "page": "https://lens.monash.edu/fake-blood-escape-rooms-and-physiology-a-new-model-for-student-engagement/",
+      "source": "https://storage.ghost.io/c/50/0c/500c32dd-8661-43a5-bab9-407a958ba474/content/images/2026/05/Escape_room.jpg2.jpg",
+      "bytes": 479980,
+      "sha256": "c26d05a978c1f0b02d6db33c2a16e24326110baaeb12b6a49236340e33ed5595",
+      "note": "真实课堂小组活动，仅作该场景演示"
+    },
+    {
+      "file": "media/classroom-activity.jpg",
+      "page": "https://lens.monash.edu/fake-blood-escape-rooms-and-physiology-a-new-model-for-student-engagement/",
+      "source": "https://storage.ghost.io/c/50/0c/500c32dd-8661-43a5-bab9-407a958ba474/content/images/2026/05/Escape_room.jpg3.jpg",
+      "bytes": 452602,
+      "sha256": "ea8c65ef16fffaa4e605d607f65c6c831066884715ce401a4b80715978bc69e9",
+      "note": "真实课堂活动，演示封面使用"
+    },
+    {
+      "file": "fonts/NotoSansSC.ttf",
+      "page": "https://github.com/google/fonts/tree/main/ofl/notosanssc",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+      "bytes": 17772300,
+      "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "note": "中文适配；复制已有官方字库，OFL"
+    },
+    {
+      "file": "fonts/Roboto.ttf",
+      "page": "https://github.com/google/fonts/tree/main/ofl/roboto",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/Roboto%5Bwdth,wght%5D.ttf",
+      "bytes": 488584,
+      "sha256": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134",
+      "note": "数字演示，OFL"
+    },
+    {
+      "file": "fonts/NotoSansSC-OFL.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "note": "随字体许可"
+    },
+    {
+      "file": "fonts/Roboto-OFL.txt",
+      "bytes": 4394,
+      "sha256": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41",
+      "note": "随字体许可"
+    }
+  ],
+  "unavailable": [
+    "brandbook首选蓝盾Logo源文件：直链403",
+    "M可用源文件：未取得",
+    "员工Bynder与模板库：未访问下载"
+  ]
+}

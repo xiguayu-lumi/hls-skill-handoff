@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hls.local/schemas/source-assets.schema.json",
+  "title": "HLS Source Asset Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "paper_id", "paper_page_count", "assets"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "paper_id": {"type": "string", "minLength": 1},
+    "paper_page_count": {"type": "integer", "minimum": 1},
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source_asset"}
+    }
+  },
+  "$defs": {
+    "source_asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "kind", "page", "clip", "xref", "evidence_ids",
+        "output", "alt_zh"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[AF][0-9]{3}$"},
+        "kind": {"enum": ["text_crop", "figure"]},
+        "page": {"type": "integer", "minimum": 1},
+        "clip": {
+          "type": ["array", "null"],
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {"type": "number"}
+        },
+        "xref": {"type": ["integer", "null"], "minimum": 1},
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "pattern": "^E[0-9]{3}$"}
+        },
+        "output": {
+          "type": "string",
+          "pattern": "^assets/source/[AF][0-9]{3}\\.png$"
+        },
+        "alt_zh": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "text_crop"}}},
+          "then": {"properties": {"clip": {"type": "array"}}}
+        },
+        {
+          "if": {"properties": {"kind": {"const": "figure"}}},
+          "then": {"properties": {"xref": {"type": "integer"}}}
+        }
+      ]
+    }
+  }
+}

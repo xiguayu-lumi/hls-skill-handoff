@@ -1,0 +1,63 @@
+canvas:
+  width: 1080
+  height: 1440
+  background: "#F6F2E8"
+content:
+  masthead_lines: ["THE OVERSEAS", "OBSERVER"]
+  tagline: "Reflect Live Better For a slower wiser you"
+  year: "2026"
+  journal_label: "JOURNAL"
+  english_headline_lines:
+    - "When the Dissertation Stalls,"
+    - "Make the Question Smaller"
+  chinese_headline_lines:
+    - "写不下去时"
+    - "先把问题"
+    - "缩小一点"
+  english_summary: "A stalled dissertation is often carrying a question that is too broad. Narrow the object, context, or time frame until the next paragraph becomes answerable."
+  chinese_summary: "论文卡住，往往不是你不会写，而是问题装得太多。缩小对象、情境或时间范围，下一段才有落点。"
+  rail:
+    - {number: "01", english: "Dissertation", chinese: "毕业论文"}
+    - {number: "02", english: "Research Scope", chinese: "研究范围"}
+    - {number: "03", english: "Writing Moves", chinese: "写作动作"}
+    - {number: "04", english: "Tutor Notes", chinese: "导师提示"}
+  rail_footer_lines: ["Smaller questions", "make clearer", "next steps."]
+palette:
+  ink: "#11110F"
+  gray: "#85827A"
+  olive: "#7E8768"
+  divider: "#1A1A18"
+  illustration_background: "#A7AD7A"
+layout:
+  left_margin: 24
+  right_rule_x: 858
+  right_rail_x: 885
+  top_margin: 18
+  masthead_line1_y: 16
+  masthead_line2_y: 86
+  tagline_y: 194
+  top_rule_y: 240
+  english_headline_y: 262
+  chinese_headline_y: 356
+  chinese_headline_line_gap: 8
+  summary_rule_y: 702
+  english_summary_y: 722
+  chinese_summary_y: 823
+  illustration_y: 920
+  illustration_height: 520
+  globe_center_x: 786
+  globe_center_y: 151
+font_sizes:
+  masthead_line1: 72
+  masthead_line2: 92
+  tagline: 29
+  english_headline: 39
+  chinese_headline: 86
+  english_summary: 26
+  chinese_summary: 25
+  rail_year: 25
+  rail_journal: 31
+  rail_number: 28
+  rail_english: 25
+  rail_chinese: 23
+  rail_footer: 20

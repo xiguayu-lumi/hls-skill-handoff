@@ -1,0 +1,12 @@
+{
+  "profile": "historical-microexpression-starting-point",
+  "scope": "Historical microexpression example only; select explicitly and override with current account and video requirements.",
+  "video": {"width": 1080, "height": 1920, "fps": 30, "color": "SDR Rec.709"},
+  "cover": {"width": 1080, "height": 1440, "separate_from_video": true},
+  "subtitles": {"font_size": 84, "bold": true, "color": "white", "outline": 4, "margin_bottom": 180, "margin_horizontal": 40, "max_lines": 1, "overflow": "split_into_sequential_semantic_cues_and_measure_actual_font"},
+  "prompt_card": {"x": 52, "y": 978, "width": 976, "height": 612, "black_opacity": 0.70, "font_size": 38, "line_spacing": 44, "text_color": "white", "highlight_color": "yellow", "preserve_full_text_when_requested": true},
+  "pip": {"shape": "circle", "size": 264, "card_x": 792, "card_y": 692, "sync_to_voice": true},
+  "emphasis": {"preferred_center_y": 230, "colors": ["white", "yellow", "lime"], "avoid": ["pink"]},
+  "audio_reference": {"integrated_lufs": -16, "max_true_peak_dbtp": -1},
+  "notes": "Coordinates are a starting point at 1080x1920. Reflow and inspect for every project. No default smoothing or fixed duration."
+}

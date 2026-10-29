@@ -1,0 +1,35 @@
+{
+  "canvas": [
+    1080,
+    1440
+  ],
+  "panel_y": 720,
+  "panel_color": "#F2C744",
+  "image": "example-illustration.png",
+  "fonts": {
+    "cn": "C:/Windows/Fonts/NotoSerifSC-VF.ttf",
+    "en": "C:/Windows/Fonts/timesbd.ttf"
+  },
+  "masthead": "ESSAY",
+  "category": "写作观察",
+  "english_lines": [
+    "Working hard on your essay.",
+    "Still not getting the marks?"
+  ],
+  "headline_lines": [
+    "Essay写得很认真，",
+    "为什么分数",
+    "还不高？"
+  ],
+  "headline_sizes": [
+    108,
+    126,
+    126
+  ],
+  "headline_y": [
+    241,
+    381,
+    527
+  ],
+  "accent": "#BA3529"
+}

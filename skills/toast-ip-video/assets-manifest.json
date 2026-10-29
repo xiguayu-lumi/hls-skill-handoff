@@ -1,0 +1,363 @@
+{
+  "package": "toast-ip-video",
+  "generated_at": "2026-09-29",
+  "workspace_relative_root": "共享资源/品牌/吐司学长/toast-ip-video",
+  "verification": {
+    "hash": "sha256",
+    "image_metadata": "Pillow",
+    "video_metadata": "ffprobe"
+  },
+  "summary": {
+    "asset_count": 32,
+    "total_bytes": 269496176,
+    "by_type": {
+      "image": 18,
+      "video": 9,
+      "audio": 3,
+      "font": 2
+    }
+  },
+  "assets": [
+    {
+      "path": "assets/characters/toast.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/toast.png",
+      "bytes": 1457864,
+      "sha256": "ec1b65b9209a38010f35440be9a0825f815126a4b6ad0a0e9d6b2bc0805c4856",
+      "type": "image",
+      "role": "character-main",
+      "width": 1122,
+      "height": 1402,
+      "alpha": true
+    },
+    {
+      "path": "assets/characters/deadpan.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/deadpan.png",
+      "bytes": 1454027,
+      "sha256": "c92c74ab92dc4fa8ec6e5932dd9712520bbcbb7b147bac111a510424b5b7b3b6",
+      "type": "image",
+      "role": "character-expression-deadpan",
+      "width": 1122,
+      "height": 1402,
+      "alpha": true
+    },
+    {
+      "path": "assets/characters/question.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/question.png",
+      "bytes": 1403583,
+      "sha256": "dc65502755fe72d7a1393c083d038e751e2634d86218977a4db805a35db95bb2",
+      "type": "image",
+      "role": "character-expression-question",
+      "width": 1122,
+      "height": 1402,
+      "alpha": true
+    },
+    {
+      "path": "assets/characters/panic.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/panic.png",
+      "bytes": 1481652,
+      "sha256": "cbcf71caa3bab26b55ec4c8e8519f0d9fa1c3b99a341493ece69ea24fa406fa1",
+      "type": "image",
+      "role": "character-expression-panic",
+      "width": 1122,
+      "height": 1402,
+      "alpha": true
+    },
+    {
+      "path": "assets/characters/idea.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/idea.png",
+      "bytes": 1417644,
+      "sha256": "bab44252fec88d464672e0b20f3f027004aeba03898faa308377f97cae756cf2",
+      "type": "image",
+      "role": "character-expression-idea",
+      "width": 1122,
+      "height": 1402,
+      "alpha": true
+    },
+    {
+      "path": "assets/characters/proud.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/proud.png",
+      "bytes": 1431279,
+      "sha256": "95c89c25db3174889766be1ad592db96990a0fabc66b4d921646c6b371d53fa3",
+      "type": "image",
+      "role": "character-expression-proud",
+      "width": 1122,
+      "height": 1402,
+      "alpha": true
+    },
+    {
+      "path": "assets/characters/poses-v2.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/poses-v2.png",
+      "bytes": 1419061,
+      "sha256": "05055809f3311e673a2bb5d3ac5d0764f7ae568ce3e14e69d82fb93e70317f60",
+      "type": "image",
+      "role": "character-poses-2x2",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true
+    },
+    {
+      "path": "assets/scenes/campus.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/campus.jpg",
+      "bytes": 207541,
+      "sha256": "521c9e448c0568dfbfcb203e5e78dab8f4e7bf6ad3f69f02b2240878be2c46c6",
+      "type": "image",
+      "role": "scene-campus",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/scenes/classroom.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/classroom.jpg",
+      "bytes": 191192,
+      "sha256": "aa1ebc394bd092bfc254386fc5e187fdec19c6046babdef277cdf23c9fce71ba",
+      "type": "image",
+      "role": "scene-classroom",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/scenes/seminar.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/seminar.jpg",
+      "bytes": 214042,
+      "sha256": "47ae0f4d84577888984aef61e3b0764e822d243bab80d0003414f4cb5d2d881c",
+      "type": "image",
+      "role": "scene-seminar",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/scenes/reading.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/reading.jpg",
+      "bytes": 100359,
+      "sha256": "137642be421bd21c2ae87853a4acb80522bb6783e2237ce2537ca4d03b600777",
+      "type": "image",
+      "role": "scene-reading",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/scenes/library.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/library.jpg",
+      "bytes": 246548,
+      "sha256": "0ec64f5a660708117d39339d358d4984268edef66283d24d734508c84cd298e2",
+      "type": "image",
+      "role": "scene-library",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/scenes/laptop.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/laptop.jpg",
+      "bytes": 176688,
+      "sha256": "4a93d2c9d5fc48f87b862ec4261b9bb909f548492c904e12da2457663c1b7162",
+      "type": "image",
+      "role": "scene-laptop",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/scenes/discussion.jpg",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/discussion.jpg",
+      "bytes": 107932,
+      "sha256": "6c1007357254a1589287de62fbf9c3bb709ad85569772277da8d2f19bec1bfc2",
+      "type": "image",
+      "role": "scene-discussion",
+      "width": 1920,
+      "height": 1080,
+      "alpha": false
+    },
+    {
+      "path": "assets/textures/paper.png",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/paper.png",
+      "bytes": 162621,
+      "sha256": "7eef43b218744a444d4a764b6658ffe8b01cf689f09faca727dfbbe13ddbad6d",
+      "type": "image",
+      "role": "texture-paper",
+      "width": 1370,
+      "height": 790,
+      "alpha": false
+    },
+    {
+      "path": "assets/audio/paper.wav",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/paper.wav",
+      "bytes": 17324,
+      "sha256": "60e99fa002d72f1fc3e7094f6cf0839e66acab000159ff78a230cd272e8435a3",
+      "type": "audio",
+      "role": "sound-paper"
+    },
+    {
+      "path": "assets/audio/tick.wav",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/tick.wav",
+      "bytes": 8684,
+      "sha256": "5f1ca6c4417e2a9a83158b8387b2c67749dfe826d094d9fba68d1c7062b62506",
+      "type": "audio",
+      "role": "sound-tick"
+    },
+    {
+      "path": "assets/fonts/regular.ttc",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/regular.ttc",
+      "bytes": 19704352,
+      "sha256": "d79c55e68b1131eea0cc1c47be4f572d964f28c682e143db2ad09c1e4cb07a3f",
+      "type": "font",
+      "role": "font-regular"
+    },
+    {
+      "path": "assets/fonts/bold.ttc",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/03_制作工程/public/bold.ttc",
+      "bytes": 16883552,
+      "sha256": "4508821b3dffe01f0ef5e5326a3e60df705a44633858811f67b6982dce3f6ee6",
+      "type": "font",
+      "role": "font-bold"
+    },
+    {
+      "path": "assets/broll/L6_projector-interactive-classroom.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/L6_投影互动课堂.mp4",
+      "bytes": 4355144,
+      "sha256": "bd8fde83de4c11940d39cee83262cadcb541a1836690864704777a9bd1389a17",
+      "type": "video",
+      "role": "broll-interactive-projection-classroom",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 6.421667
+    },
+    {
+      "path": "assets/broll/S1_small-group-discussion.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/S1_小班讨论.mp4",
+      "bytes": 7407222,
+      "sha256": "2716917f14862c73af7bc2019a8f1caee1801b94f139b8910e43db62ba66a273",
+      "type": "video",
+      "role": "broll-small-group-discussion",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 15.64
+    },
+    {
+      "path": "assets/broll/S3_reading-notes-close-up.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/S3_阅读笔记特写.mp4",
+      "bytes": 104631349,
+      "sha256": "9cb26cbaa02cf15bbbae795006867a241d16ae57ab0c40a49b8f9afb74e2e645",
+      "type": "video",
+      "role": "broll-reading-notes-close-up",
+      "width": 4096,
+      "height": 2160,
+      "duration_seconds": 71.8
+    },
+    {
+      "path": "assets/broll/S7_library-browsing.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/S7_图书馆查阅.mp4",
+      "bytes": 17273320,
+      "sha256": "0a8e49037a0f9b6fdad0ebecdd5622dfa6890eb73c2e339d93a0558874518075",
+      "type": "video",
+      "role": "broll-library-browsing",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 30.12
+    },
+    {
+      "path": "assets/broll/N05_email-keyboard-close-up.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/N05_写邮件键盘特写.mp4",
+      "bytes": 22472938,
+      "sha256": "328bc718a4e7030c9fabb437ce17fd7691a37c970a252886911c314a7f5f36bf",
+      "type": "video",
+      "role": "broll-email-keyboard-close-up",
+      "width": 3840,
+      "height": 2160,
+      "duration_seconds": 8.0
+    },
+    {
+      "path": "assets/broll/T3_teacher-student-face-to-face-discussion.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/T3_师生面对面讨论.mp4",
+      "bytes": 2593141,
+      "sha256": "aa52cf96b73f323d16e7aeeba6410ab0cfde8db236befc4bf53f22224acb7fda",
+      "type": "video",
+      "role": "broll-teacher-student-face-to-face-discussion",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 6.740067
+    },
+    {
+      "path": "assets/broll/N01_oxford-architecture-aerial.mp4",
+      "source": "内容项目/2026-09-20_英国教授六个行为B-roll/05_最终交付/B-roll素材包/N01_牛津建筑航拍.mp4",
+      "bytes": 30080094,
+      "sha256": "9d8684c9ccca650ac2894665e7e3e0a8eb6d15562a5c8a66b41ba6ad68cbc97f",
+      "type": "video",
+      "role": "broll-oxford-architecture-aerial",
+      "width": 2160,
+      "height": 3840,
+      "duration_seconds": 8.466667
+    },
+    {
+      "path": "assets/ai-scenes/scene-01-library-desk.png",
+      "source": "output/2026-09-28_吐司学长IP视觉样稿/场景_01_图书馆书桌.png",
+      "bytes": 1843064,
+      "sha256": "c884618f34aa2cd1ff8e8ae009d509b26875e7920137cc2da2ff22db80608bda",
+      "type": "image",
+      "role": "ai-scene-library-desk",
+      "width": 941,
+      "height": 1672,
+      "alpha": false
+    },
+    {
+      "path": "assets/ai-scenes/scene-02-email-window.png",
+      "source": "output/2026-09-28_吐司学长IP视觉样稿/场景_02_邮件窗口.png",
+      "bytes": 1751976,
+      "sha256": "aa89b50b39e46e28a0e1cf697b4b7583702b52b199c7dccfbbe1710f67b92700",
+      "type": "image",
+      "role": "ai-scene-email-window",
+      "width": 940,
+      "height": 1672,
+      "alpha": false
+    },
+    {
+      "path": "assets/recordings/guide1.mp4",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/屏幕录制 2026-09-29 115052.mp4",
+      "bytes": 9660668,
+      "sha256": "fc42b4b98b292abcf2fc9dabf9b3d9186fc4a9dd7fa09615c3cf9f0e00737e59",
+      "type": "video",
+      "role": "episode-screen-recording-guide-1",
+      "width": 1214,
+      "height": 1178,
+      "duration_seconds": 13.4333
+    },
+    {
+      "path": "assets/recordings/guide2.mp4",
+      "source": "内容项目/2026-09-29_吐司学长课前准备/屏幕录制 2026-09-29 115255.mp4",
+      "bytes": 5440375,
+      "sha256": "af562d0f84317724ec32517c01d5d24fdd929fec515183fde329a045ea3638be",
+      "type": "video",
+      "role": "episode-screen-recording-guide-2",
+      "width": 1228,
+      "height": 1186,
+      "duration_seconds": 7.866633
+    },
+    {
+      "path": "assets/reference/original-style.jpg",
+      "source": "素材/9570a5eb1bdb63f095b4f7a8101e20bf.jpg",
+      "bytes": 76896,
+      "sha256": "73c4e38c894d33626393d85220d27f19026cbd7b6b7a7e87930f90b7946547bd",
+      "type": "image",
+      "role": "reference-original-style",
+      "width": 736,
+      "height": 920,
+      "alpha": false
+    },
+    {
+      "path": "assets/audio/toast-108bpm.wav",
+      "source": "scripts/audio.py --music-only assets/audio/toast-108bpm.wav --seconds 72",
+      "source_kind": "generated",
+      "bytes": 13824044,
+      "sha256": "de748c3e6d323eae8f858009c86d13f27a9d1903a534632c974ac614301535fe",
+      "type": "audio",
+      "role": "original-instrumental-reference",
+      "duration": 72.0,
+      "sample_rate": 48000,
+      "channels": 2
+    }
+  ]
+}

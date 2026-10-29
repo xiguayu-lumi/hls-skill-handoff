@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay范例精读 - The Clown Vs. the Crown</title>
+<style>
+:root {
+  --page-bg: #ffffff;
+  --text-main: #1d1f22;
+  --text-translation: #666b72;
+  --annotation-text: #25282d;
+  --annotation-cn: #555b63;
+  --rule: #25282d;
+  --translation-rule: #c5cad0;
+  --annotation-underline: #55C0F4;
+  --annotation-column-bg: #EEF4FF;
+  --disclosure-text: #aab0b6;
+  --font-en: "Arial", "Helvetica", sans-serif;
+  --font-zh: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+}
+body { margin: 0; padding: 20px; background: #e8e8e8; font-family: var(--font-en); }
+.page {
+  width: 210mm; min-height: 297mm; max-height: 297mm;
+  background: var(--page-bg); margin: 12px auto; padding: 13mm 15mm;
+  box-sizing: border-box; position: relative; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  display: flex; flex-direction: column;
+}
+.page-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 10pt; color: var(--text-main);
+  padding-bottom: 3mm; border-bottom: 0.5pt solid var(--rule);
+  margin-bottom: 6mm; flex-shrink: 0;
+}
+.page-header .label { font-weight: 600; font-family: var(--font-zh); }
+.page-header .title { flex: 1; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0 8mm; }
+.page-header .page-num { font-variant-numeric: tabular-nums; }
+.page-body { flex: 1; display: flex; gap: 7.5mm; overflow: hidden; }
+.essay-column { flex: 0 0 68%; overflow: hidden; }
+.annotation-column { flex: 0 0 28%; background: var(--annotation-column-bg); padding: 0 5mm; overflow: hidden; }
+.paragraph-unit { margin-bottom: 0; }
+.essay-en {
+  font-size: 10.5pt; line-height: 1.52; color: var(--text-main);
+  margin: 0 0 3mm 0; text-align: justify;
+}
+.translation-zh {
+  font-family: var(--font-zh); font-size: 9.3pt; line-height: 1.62;
+  color: var(--text-translation); margin: 1.5mm 0 5mm 0;
+  padding-left: 3.5mm; border-left: 0.8pt solid var(--translation-rule);
+}
+.essay-question {
+  font-size: 10.2pt; font-weight: 500; margin-bottom: 6mm;
+  color: var(--text-main); line-height: 1.5; padding-left: 3.5mm;
+  border-left: 1.5pt solid var(--annotation-underline);
+}
+.essay-meta { font-size: 9.5pt; line-height: 1.6; color: var(--text-main); margin-bottom: 5mm; }
+.essay-meta .meta-line { margin: 0; }
+.essay-meta .meta-label { font-weight: 600; margin-right: 4px; }
+.references {
+  font-size: 8.5pt; line-height: 1.35; color: var(--text-main);
+  margin-top: 6mm; border-top: 0.3pt solid var(--translation-rule); padding-top: 3mm;
+}
+.references h3 { font-size: 9pt; font-weight: 600; margin: 0 0 2mm 0; }
+.annotated-text {
+  text-decoration: underline; text-decoration-color: var(--annotation-underline);
+  text-decoration-thickness: 0.7pt; text-underline-offset: 2px; text-decoration-skip-ink: none;
+}
+.annotation-ref {
+  font-size: 7pt; font-weight: 600; color: var(--annotation-underline);
+  vertical-align: super; margin-left: 1px; line-height: 0;
+}
+.annotation { margin-bottom: 5mm; }
+.annotation-number { font-size: 8.5pt; font-weight: 600; color: var(--annotation-text); margin-bottom: 1mm; }
+.annotation-en { font-size: 8.5pt; line-height: 1.42; color: var(--annotation-text); margin: 0 0 1.5mm 0; text-align: left; }
+.annotation-zh { font-family: var(--font-zh); font-size: 8.2pt; line-height: 1.45; color: var(--annotation-cn); margin: 0; }
+.disclosure { position: absolute; bottom: 4mm; left: 0; right: 0; text-align: center; font-size: 6.8pt; color: var(--disclosure-text); font-family: var(--font-zh); }
+@media print { body { background: white; } .page { margin: 0; box-shadow: none; page-break-after: always; } }
+</style>
+</head>
+<body>
+<div class="page">
+<header class="page-header">
+<span class="label">Essay范例精读</span>
+<span class="title">The Clown Vs. the Crown</span>
+<span class="page-num">01 / 01</span>
+</header>
+<div class="page-body">
+<main class="essay-column">
+<div class="essay-meta">
+<p class="meta-line"><span class="meta-label">Student:</span>Sample Student A</p>
+<p class="meta-line"><span class="meta-label">Course:</span>English M02</p>
+<p class="meta-line"><span class="meta-label">Date:</span>3 April 2013</p>
+</div>
+<div class="essay-question">Compare and contrast two fast-food restaurants in terms of their target audience and marketing strategies.</div>
+<div class="paragraph-unit">
+<p class="essay-en">When it comes to fast food, there are two names that come to mind almost immediately. McDonald&#x27;s and Burger King have been competing for the same customers for decades, each with distinct approaches to the same market. Both restaurants offer similar menus, but their marketing strategies and target audiences differ significantly.<span class="annotated-text" data-annotation="2">Both restaurants offer similar menus, but their marketing strategies and target audiences differ significantly.</span><sup class="annotation-ref">[2]</sup> McDonald&#x27;s might dominate with its cheap yet satisfying breakfast, but Burger King rules over the lunch crowd.<span class="annotated-text" data-annotation="1">McDonald&#x27;s might dominate with its cheap yet satisfying breakfast, but Burger King rules over the lunch crowd.</span><sup class="annotation-ref">[1]</sup> This fundamental difference in peak hours reflects each restaurant&#x27;s broader strategy.</p>
+<div class="translation-zh">说到快餐，几乎立刻想到两个名字。麦当劳和汉堡王数十年来一直在争夺同样的顾客，各自以截然不同的方式进入同一个市场。两家餐厅提供类似的菜单，但它们的营销策略和目标受众有显著差异。麦当劳可能在便宜又令人满意的早餐上占据优势，但汉堡王统治着午餐时段。这种高峰时段的根本差异反映了每家餐厅更广泛的策略。</div>
+</div>
+<div class="paragraph-unit">
+<p class="essay-en">McDonald&#x27;s targets families with children through its Happy Meal toys and play areas. The company&#x27;s mascot, Ronald McDonald, was specifically designed to appeal to young children and create brand loyalty from an early age.<span class="annotated-text" data-annotation="3">The company&#x27;s mascot, Ronald McDonald, was specifically designed to appeal to young children and create brand loyalty from an early age.</span><sup class="annotation-ref">[3]</sup> In contrast, Burger King focuses more on adult consumers, particularly young men, with its larger portions and flame-grilled taste.<span class="annotated-text" data-annotation="4">In contrast, Burger King focuses more on adult consumers, particularly young men, with its larger portions and flame-grilled taste.</span><sup class="annotation-ref">[4]</sup> Their advertising often features humor and action-oriented themes that resonate with this demographic.</p>
+<div class="translation-zh">麦当劳通过开心乐园餐玩具和游乐区来瞄准有孩子的家庭。公司的吉祥物麦当劳叔叔专门设计来吸引幼儿，并从早期就培养品牌忠诚度。相比之下，汉堡王更注重成年消费者，尤其是年轻男性，提供更大份量和火焰烤制口味。其广告常以幽默和动作导向的主题来吸引这一人群。</div>
+</div>
+<div class="paragraph-unit">
+<p class="essay-en">While both restaurants use advertising extensively, their approaches reveal different priorities. McDonald&#x27;s commercials often depict happy families sharing meals together, reinforcing the family-friendly image. Burger King&#x27;s advertisements, on the other hand, tend to be edgier and more individualistic, appealing to consumers who see themselves as independent and bold. These contrasting advertising strategies reflect each brand&#x27;s understanding of its core audience.<span class="annotated-text" data-annotation="5">These contrasting advertising strategies reflect each brand&#x27;s understanding of its core audience.</span><sup class="annotation-ref">[5]</sup></p>
+<div class="translation-zh">虽然两家餐厅都大量使用广告，但它们的方式揭示了不同的优先级。麦当劳的广告常描绘快乐的家庭一起用餐，强化家庭友好的形象。汉堡王的广告则更前卫、更个人主义，吸引那些自认为是独立和大胆的消费者。这些对比鲜明的广告策略反映了每个品牌对其核心受众的理解。</div>
+</div>
+<div class="paragraph-unit">
+<p class="essay-en">In conclusion, while McDonald&#x27;s and Burger King operate in the same industry, they have carved out distinct niches through different target audiences and marketing strategies. McDonald&#x27;s family-oriented approach has made it a household name, while Burger King&#x27;s appeal to individualism has created a loyal following among young adults. Understanding these differences helps explain why both chains continue to thrive despite selling essentially the same products.<span class="annotated-text" data-annotation="6">Understanding these differences helps explain why both chains continue to thrive despite selling essentially the same products.</span><sup class="annotation-ref">[6]</sup></p>
+<div class="translation-zh">总之，虽然麦当劳和汉堡王在同一行业运营，但它们通过不同的目标受众和营销策略开辟了各自的市场定位。麦当劳以家庭为导向的方式使其成为家喻户晓的名字，而汉堡王对个人主义的吸引则在年轻成年人中培养了忠实追随者。理解这些差异有助于解释为什么两个连锁店在销售基本相同产品的情况下都能持续繁荣。</div>
+</div>
+<div class="references">
+<h3>Works Cited</h3>
+<p>Smith, J. (2010). Fast Food Marketing Strategies. New York: Academic Press.</p>
+<p>Johnson, M. (2011). The Burger Wars. Journal of Consumer Studies, 15(3), 210-225.</p>
+</div>
+</main>
+<aside class="annotation-column">
+<div class="annotation" data-anchor="1">
+<div class="annotation-number">[1]</div>
+<div class="annotation-en">This is a good compare/contrast thesis statement. It signals the essay&#x27;s direction clearly.</div>
+<div class="annotation-zh">这是一个很好的比较 / 对比型 thesis statement。它清晰地标示了文章方向。</div>
+</div>
+<div class="annotation" data-anchor="2">
+<div class="annotation-number">[2]</div>
+<div class="annotation-en">The sentence effectively sets up the comparison framework. Consider specifying what &#x27;differ significantly&#x27; means to give readers a clearer preview.</div>
+<div class="annotation-zh">这句话有效地建立了比较框架。考虑具体说明&quot;显著差异&quot;指什么，给读者更清晰的预览。</div>
+</div>
+<div class="annotation" data-anchor="3">
+<div class="annotation-number">[3]</div>
+<div class="annotation-en">The specific example of Ronald McDonald makes the claim about targeting children more concrete and convincing.</div>
+<div class="annotation-zh">麦当劳叔叔的具体例子使&quot;瞄准儿童&quot;这一论点更加具体和有说服力。</div>
+</div>
+<div class="annotation" data-anchor="4">
+<div class="annotation-number">[4]</div>
+<div class="annotation-en">The &#x27;In contrast&#x27; transition effectively signals the shift to the second restaurant. The specific details about portions and taste support the targeting claim.</div>
+<div class="annotation-zh">&quot;相比之下&quot;这一过渡词有效地标示了转向第二家餐厅。关于份量和口味的具体细节支持了目标受众的论点。</div>
+</div>
+<div class="annotation" data-anchor="5">
+<div class="annotation-number">[5]</div>
+<div class="annotation-en">This sentence effectively links the paragraph&#x27;s analysis back to the essay&#x27;s central comparison.</div>
+<div class="annotation-zh">这句话有效地将段落分析回扣到文章的中心比较上。</div>
+</div>
+<div class="annotation" data-anchor="6">
+<div class="annotation-number">[6]</div>
+<div class="annotation-en">The conclusion effectively restates the position and offers a useful implication about market differentiation.</div>
+<div class="annotation-zh">结论有效地重申了立场，并提出了关于市场差异化的有用启示。</div>
+</div>
+</aside>
+</div>
+<div class="disclosure">右栏含原始评语与补充写作解析。</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# Temporary video work directories
+typewriter_work/
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# WorkBuddy workspace
+.workbuddy/
+.codebuddy/
+ppt-to-video.zip
+_user_meta.json

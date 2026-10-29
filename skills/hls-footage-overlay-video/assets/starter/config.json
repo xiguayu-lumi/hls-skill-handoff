@@ -1,0 +1,19 @@
+{
+  "width": 1080, "height": 1920, "fps": 30, "duration": 6,
+  "audio": "narration.wav", "font_family": "Microsoft YaHei",
+  "media": {"study": {"file": "study.mp4", "focus_x": 0.5, "focus_y": 0.5}},
+  "captions": [[0, 3, "这里替换为本期配音第一句"], [3, 6, "这里替换为本期配音第二句"]],
+  "scenes": [
+    {"id":"intro","start":0,"end":3,"asset":"study","offset":0,"loop":false,"chapter":"本期主题",
+     "panel":{"x":80,"y":1000,"w":850,"h":330,"opacity":0.62,"rows":[
+       {"text":"先呈现具体问题","at":0,"size":78,"color":"#FFFFFF"},
+       {"text":"再给一个判断","at":1.2,"size":78,"color":"#FFE36C","mark":"underline"}]},
+     "motion_roi":[100,300,800,550]},
+    {"id":"steps","start":3,"end":6,"asset":"study","offset":3,"loop":false,"chapter":"逐条追问",
+     "panel":{"x":80,"y":270,"w":850,"h":480,"opacity":0.62,"active_only":true,"rows":[
+       {"text":"证据来自哪里？","at":0,"size":72},
+       {"text":"适用于什么情况？","at":0.9,"size":72},
+       {"text":"还有其他解释吗？","at":1.8,"size":72}]},
+     "motion_roi":[100,850,800,500]}
+  ]
+}

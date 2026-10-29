@@ -1,0 +1,4 @@
+interface:
+  display_name: "生成小红书真人口播封面"
+  short_description: "从真人口播视频和文稿生成同系列 3:4 小红书知识封面"
+  default_prompt: "Use $generate-xhs-video-cover to create and verify a 3:4 Xiaohongshu cover from my talking-head video and script."
